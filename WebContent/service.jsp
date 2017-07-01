@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resource/css/bootstrap.min.css" />
-</head>s
+<link rel="stylesheet" href="resource/css/custom.css" />
+</head>
 <body>
 <!-- navbartop -->
 <nav class="navbar navbar-default">
@@ -19,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="index_navbar.jsp">Brand</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,11 +52,14 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="#">BEST FAQ</a></li>
+            <li><a href="#">상품문의</a></li>
+            <li><a href="#">주문/결제</a></li>
+            <li><a href="#">배송</a></li>
+            <li><a href="#">주문 취소 및 교환</a></li>
+            <li><a href="#">반품</a></li>
             <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <li><a href="#">문의하러 가기</a></li>
           </ul>
         </li>
       </ul>
@@ -77,8 +81,30 @@
   </div>
 </div>
 <!-- navbarmiddle end -->
+<div class="jumbotron">
+  <h3> 고객센터 페이지 입니다.</h3>
+  <h1>무엇을 도와드릴까요?</h1>
+  <p>...</p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+</div>
 
-<h1> 고객센터 페이지 입니다.</h1>
+<!-- 이름, 이멜, 상담 내용 form -->
+<div class="col-sm-8 col-sm-offset-2">
+	<form action="">
+		<div class="form-group">
+			<label for="name" class="control-label"><strong>이름</strong></label>
+			<input type="text" id="name" class="form-control" />
+		</div>
+		<div class="form-group">
+			<label for="email"><strong>이메일</strong></label>
+			<input type="email" id="email" class="form-control"/>
+			<p class="help-block">답변 받을 이메일을 입력하세요.</p>
+		</div>
+		<strong>문의내용</strong><textarea class="form-control" rows="7"></textarea>
+		<button type="submit" class="btn btn-default">제출</button>
+	</form>
+</div>
+
 <script src="resource/js/jquery-3.2.0.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 </body>

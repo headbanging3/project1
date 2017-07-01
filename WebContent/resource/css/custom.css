@@ -1,0 +1,17 @@
+@CHARSET "EUC-KR";
+
+/*
+* index_navbar css
+*/
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+body{
+	background-color: #CCFFFF;
+}
+
+.nav > .dropdown:hover > ul{
+	display: block;
+}
