@@ -81,6 +81,7 @@
 <h1> 고객센터 페이지 입니다.</h1>
 <h1> 브랜치 생성 후 기능 추가 </h1>
 <h1> 브랜치 생성 후 기능 추가 </h1>
+<!-- 1두언 -->
 <script src="resource/js/jquery-3.2.0.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 </body>
