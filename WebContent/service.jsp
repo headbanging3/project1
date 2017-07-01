@@ -82,7 +82,7 @@
 <h1> 브랜치 생성 후 기능 추가 </h1>
 <h1> 브랜치 생성 후 기능 추가 </h1>
 
-<!-- 1두언 2.웅환-->
+<!-- 1두언 2.웅환adsfadsfada-->
 <script src="resource/js/jquery-3.2.0.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
 </body>
