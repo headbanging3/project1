@@ -24,6 +24,7 @@
 		<label for="email">이메일</label>
 		<input type="text" name="email" id="email" /><br />
 		<label for="addr">주소</label>
+		<input type="text" name="addr" id="addr" /><br />
 		<input type="text" name="addr" id="addr" /><br />	
 	</form>
 </div>
