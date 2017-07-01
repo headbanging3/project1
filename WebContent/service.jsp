@@ -77,7 +77,7 @@
   </div>
 </div>
 <!-- navbarmiddle end -->
-
+<h1> 다른사람이 수정</h1>
 <h1> 고객센터 페이지 입니다.</h1>
 <h1> 브랜치 생성 후 기능 추가 </h1>
 <script src="resource/js/jquery-3.2.0.js"></script>
