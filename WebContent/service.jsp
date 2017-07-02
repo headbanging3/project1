@@ -12,7 +12,7 @@
 <<<<<<< HEAD
 <!-- navbartop! -->
 =======
-<!-- navbartop!!! -->
+<!-- navbartop!!!!! -->
 >>>>>>> manager
 <nav class="navbar navbar-default">
   <div class="container-fluid">
