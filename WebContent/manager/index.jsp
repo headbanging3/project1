@@ -7,6 +7,6 @@
 <title>index.jsp</title>
 </head>
 <body>
-<h3>관리자 페이지 입니다.</h3>
+<h3>한글 왜 깨지냐 </h3>
 </body>
 </html>
