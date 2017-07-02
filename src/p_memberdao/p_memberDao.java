@@ -17,6 +17,7 @@ public class p_memberDao {
 		}
 		return dao;
 	}
+	// 내가 지금 돼지바를 먹고있는데 
 	// 아이디 비밀번호가 유효한지 여부를 리턴ㅁㅁ
 	//아이디 비밀번호가 유효한지 여부를 리턴
 	public boolean isValid(p_memberDto dto){
