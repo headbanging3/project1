@@ -7,6 +7,6 @@
 <title>index.jsp</title>
 </head>
 <body>
-<h3>한글 왜 깨지냐 </h3>ㅁㅁㅁ
+<h3>한글 왜 깨지냐 </h3>ㅁㅁㅁ 함꼐 나눌수있다면
 </body>
 </html>
