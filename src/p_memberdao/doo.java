@@ -1,4 +1,4 @@
-package project1;
+package p_memberdao;
 
 public class doo {
 

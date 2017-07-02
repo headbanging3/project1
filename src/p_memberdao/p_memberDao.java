@@ -1,4 +1,4 @@
-package p_member.dao;
+package p_memberdao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
