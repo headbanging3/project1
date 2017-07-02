@@ -1,12 +1,13 @@
 package p_memberdao;
 
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import p_memberdto.p_memberDto;
-import test.util.DbcpBean;
+import util.DbcpBean;
 
 public class p_memberDao {
 	private static p_memberDao dao;
