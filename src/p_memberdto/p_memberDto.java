@@ -10,7 +10,7 @@ public class p_memberDto {
 	private String addr;
 	private String regdate;
 	
-	//디폴트 생성자
+	//디폴트 생성자 입니다.
 	public p_memberDto(){}
 
 	public p_memberDto(int mem_num, String id, String pwd, String name, String phone, String email, String addr,
