@@ -17,7 +17,7 @@ public class p_memberDao {
 		}
 		return dao;
 	}
-	
+	// 아이디 비밀번호가 유효한지 여부를 리턴ㅁㅁ
 	//아이디 비밀번호가 유효한지 여부를 리턴
 	public boolean isValid(p_memberDto dto){
 		Connection conn = null;
