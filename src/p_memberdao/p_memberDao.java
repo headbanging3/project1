@@ -5,6 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import p_memberdto.p_memberDto;
 import util.DbcpBean;
@@ -18,8 +20,7 @@ public class p_memberDao {
 		}
 		return dao;
 	}
-	// 내가 지금 돼지바를 먹고있는데 
-	// 아이디 비밀번호가 유효한지 여부를 리턴ㅁㅁ
+
 	//아이디 비밀번호가 유효한지 여부를 리턴
 	public boolean isValid(p_memberDto dto){
 		Connection conn = null;
@@ -49,6 +50,48 @@ public class p_memberDao {
 			}catch (Exception e){}
 		}
 		return isValid;
+	}	// isValid
+	
+	// 회원목록을 리턴
+	public List<p_memberDto> getList() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		// 회원 목록을 담을 객체 생성
+		List<p_memberDto> list = new ArrayList<>();
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT * FROM p_member order by num asc";
+			pstmt = conn.prepareStatement(sql);
+			
+			// sql문 수행하고 결과셋 받아오기
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				int num = rs.getInt("num");
+				String id = rs.getString("id");
+				String pwd = rs.getString("pwd");
+				String name = rs.getString("name");
+				String phone = rs.getString("phone");
+				String email = rs.getString("email");
+				String addr = rs.getString("addr");
+				String regdate = rs.getString("regdate");
+				
+				// 회원 한명의 정보를 p_memberDto 객체에 담는다.
+				p_memberDto dto = new p_memberDto(num,id,pwd,name,phone,email,addr,regdate);
+				
+				// p_memberDto 객체의 참조값을 ArrayList에 저장
+				list.add(dto);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(rs!=null) rs.close();
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch(Exception e) {}
+		}
+		return list;
 	}
 	
-}
+}	// Class
