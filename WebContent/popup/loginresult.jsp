@@ -22,12 +22,17 @@
 
 <% if(isValid){ 
 	session.setAttribute("id", dto.getId()); %>
+
 	<p><strong><%=dto.getId() %></strong>님 로그인 되었습니다.</p>
-	<script>window.close();</script>
+	<script>window.close();
+	location.href="../index2_navbar.jsp"
+	</script>
+		 
 <%}else{ %>
-	<p>아이디 혹은 비밀번호가 틀립니다.</p>
+	
 	<script>
-		location.href="../popup/popup_page.html"
+		alert("아이디 비밀번호를 확인해 주세요");
+		location.href="../popup/popup_page.html";
 	</script>
 <%} %>
 
