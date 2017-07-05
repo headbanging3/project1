@@ -1,9 +1,11 @@
+<%@page import="p_memberdto.p_memberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String cPath=(String)request.getContextPath();
 	response.sendRedirect(cPath+"/index.jsp");
 	String id =(String) session.getAttribute("id");
+	
 %>
 <!DOCTYPE html>
 <html>
