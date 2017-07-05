@@ -29,8 +29,20 @@ body{
 	<button class="btn btn-primary" type="submit">    로그인    </button>
 	
 </form>
+<script>
+	
+	
+</script>
+<li id="one"><a href="../member/signup_form.jsp">회원가입</a></li>
 
-
-<li><a href="../member/signup_form.jsp" target="_blank">회원가입</a></li>
+<script>
+	function sub(){
+		window.opener.top.location.href="../member/signup_form.jsp"
+		window.close();
+	}
+	document.querySelector("#one").addEventListener("click",function(){
+		sub();
+	})
+</script>
 </body>
 </html>
