@@ -5,7 +5,7 @@
 <%
 	//쿠키에 저장된 아이디를 담을 변수
 	String savedId="";
-	
+	String savedId2="";
 	//request 객체에 담겨서 전달된 쿠키 목록을 읽어온다.
 	Cookie[] cookies=request.getCookies();
 	
@@ -49,8 +49,6 @@ body{
 		<input type="checkbox" name="isSave" value="yes" />
 	아이디저장</label>
 	<label>
-		<input type="checkbox" name="isSave2" value="yes" />
-	로그인 상태유지</label><br />
 	</div>
 	<button class="btn btn-primary" type="submit">    로그인    </button>
 	

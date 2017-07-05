@@ -127,7 +127,108 @@ public class p_memberDao {
 			return false;
 		}
 	}//inert();
+
+	//회원 가입된 정보를 리턴해주는 메소드
+	public p_memberDto sergetData(String id){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		p_memberDto dto=null;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT mem_num,name,email FROM p_member"
+						+" WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				dto=new p_memberDto();
+				dto.setMem_num(Integer.parseInt(rs.getString("mem_num")));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {}
+		}
+		return dto;
+	}
 	
+	public boolean serinsert(int mem_num, String s_content){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "INSERT INTO p_service(mem_num,s_content) "
+					+ "VALUES(?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			pstmt.setString(2, s_content);
+			flag = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}//serinert();
+	
+	//회원 가입된 정보를 리턴해주는 메소드
+		public p_memberDto getData(String id){
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			p_memberDto dto=null;
+			try {
+				conn = new DbcpBean().getConn();
+				String sql = "SELECT pwd,name,phone,email,addr,regdate FROM p_member WHERE id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					dto=new p_memberDto();
+					dto.setId(id);
+					dto.setPwd(rs.getString("pwd"));
+					dto.setName(rs.getString("name"));
+					dto.setPhone(rs.getString("phone"));
+					dto.setEmail(rs.getString("email"));
+					dto.setAddr(rs.getString("addr"));
+					dto.setRegdate(rs.getString("regdate"));
+				}
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+				return dto;
+		}
 
 	public String findId(String name, String email){
 		Connection conn = null;
@@ -195,7 +296,6 @@ public class p_memberDao {
 		}return pwd;
 	}//findPwd();
 
-	
 	// 회원 정보 수정
 	public boolean update(p_memberDto dto) {
 		Connection conn = null;
@@ -207,12 +307,14 @@ public class p_memberDao {
 			pstmt = conn.prepareStatement(sql);	
 			
 			//? 에 수정할 회원의 정보 바인딩 하기
+			
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPwd());
 			pstmt.setString(3, dto.getName());
 			pstmt.setString(4, dto.getPhone());
 			pstmt.setString(5, dto.getEmail());
 			pstmt.setString(6, dto.getAddr());
+			pstmt.setInt(7, dto.getMem_num());
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -268,6 +370,7 @@ public class p_memberDao {
 		//회원 한명의 정보가 담겨 있는 MemberDto 객체를 리턴해준다.
 		return dto;
 	}	
+
 	
 	public String isOverlab(String inputId){
 		Connection conn = null;
@@ -284,7 +387,6 @@ public class p_memberDao {
 			while (rs.next()) {
 				id=rs.getString("id");
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -302,3 +404,4 @@ public class p_memberDao {
 	}//isOverlab();
 		
 }	// Class
+
