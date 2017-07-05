@@ -49,6 +49,7 @@
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
+	//회원가입 버튼 클릭시 checkbox가 체크 되었는지 확인
 	$("#next").on("click", function(){
 		var ag1=$("input:checkbox[id=agree1]").is(':checked');
 		var ag2=$("input:checkbox[id=agree2]").is(':checked');
@@ -58,9 +59,9 @@
 			alert("개인정보 동의에 체크 해주세요.");
 		}
 	});
+	//취소버튼 클릭시
 	$("#cancel").on("click",function(){
 		location.href="../index.jsp";
-		
 	});
 </script>
 </body>

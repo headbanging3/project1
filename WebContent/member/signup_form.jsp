@@ -85,18 +85,20 @@
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
+	//아이디와 비밀번호가 유효한지 확인을 위한 변수
 	var isValId=false;
 	var isValPwd=false;
 
+	//취소 버튼 클릭시 index페이지로 이동
 	$("#cancel").on("click",function(){
-
 		location.href="../index.jsp";
 	});
 	
+	//아이디 및 비밀번호 정규식
 	var reg1= /^[a-zA-Z0-9]{4,14}$/;
 	var reg2= /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
 	
-	
+	//회원가입 버튼 클릭시 제출되는 버튼
 	$("#signup").on("submit",function(){
 		var inputPwd=$("#pwd").val();
 		var inputPwd2=$("#pwd2").val();
@@ -114,19 +116,33 @@
 		}
 	});
 	
+	//중복확인 버튼 클릭시
 	$("#idValid").on("click",function(){
 		var inputId=$("#id").val();
 		var idMatching=reg1.test(inputId);
-		console.log(idMatching);
-		if(idMatching){
-			alert("이용 가능합니다.");
-			isValId=true;
-			console.log("isValId=true");
-		}else{
-			alert("아이디 형식을 확인하세요");
-			console.log("isValId=false");
-			$("#id").focus();
-		}
+		var isOverlab=false;
+		//DB에 중복된 ID가 있는지 확인을 위한 ajax통신
+		$.ajax({
+			url:"overlab.jsp",
+			method:"POST",
+			data:{id:inputId},
+			success:function(data){
+				var obj=JSON.parse(data);
+				if(inputId==obj.id){
+					alert("아이디가 존재 합니다.");
+					return false;
+				}else{
+					isOverlab=true;
+					if(idMatching && isOverlab){
+						alert("이용 가능합니다.");
+						isValId=true;
+					}else{
+						alert("아이디 형식을 확인하세요");
+						$("#id").focus();
+					}
+				}
+			}
+		});
 	});
 </script>
 </body>

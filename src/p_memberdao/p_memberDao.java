@@ -108,6 +108,7 @@ public class p_memberDao {
 		return list;
 	}
 
+	//회원가입 dao(웅환)
 	public boolean insert(p_memberDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -269,6 +270,7 @@ public class p_memberDao {
 		return dto;
 	}
 
+	//아이디 찾기 dao(웅환)
 	public String findId(String name, String email) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -300,13 +302,16 @@ public class p_memberDao {
 			}
 		}
 		return id;
+
 	}// findId();
 
-	public p_memberDto findPwd(String id, String phone) {
+	
+	//비밀번호 찾기 dao(웅환)
+	public String findPwd(String id, String phone){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-
+		String pwd="";
 		try {
 			conn = new DbcpBean().getConn();
 			String sql = "SELECT pwd FROM p_member " + "WHERE id=? AND phone=?";
@@ -315,9 +320,8 @@ public class p_memberDao {
 			pstmt.setString(2, phone);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-
+				pwd=rs.getString("pwd");
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -330,10 +334,9 @@ public class p_memberDao {
 					conn.close();
 			} catch (Exception e) {
 			}
-		}
-		return null;
+		}return pwd;
+	}//findPwd();
 
-	}
 
 	// 회원 정보 수정
 	public boolean update(p_memberDto dto) {
@@ -343,16 +346,21 @@ public class p_memberDao {
 		try {
 			conn = new DbcpBean().getConn();
 			String sql = "UPDATE p_member SET id=?, pwd=?, name=?, phone=?, email=?, addr=? WHERE mem_num = ?";
-			pstmt = conn.prepareStatement(sql);
 
 			// ? 에 수정할 회원의 정보 바인딩 하기
+
+			pstmt = conn.prepareStatement(sql);	
+			
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPwd());
 			pstmt.setString(3, dto.getName());
 			pstmt.setString(4, dto.getPhone());
 			pstmt.setString(5, dto.getEmail());
 			pstmt.setString(6, dto.getAddr());
-		} catch (Exception e) {
+			pstmt.setInt(7, dto.getMem_num());
+			
+			flag = pstmt.executeUpdate();
+		}catch(Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
@@ -378,7 +386,8 @@ public class p_memberDao {
 		p_memberDto dto = null;
 		try {
 			conn = new DbcpBean().getConn();
-			String sql = "SELECT id, pwd, name, phone, email, addr from p_member WHERE mem_num =?";
+			String sql = "SELECT id, pwd, name, phone, email, addr, regdate from p_member WHERE mem_num =?";
+			
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -415,4 +424,38 @@ public class p_memberDao {
 		return dto;
 	}
 
-} // Class
+
+	//아이디 중복값을 DB와 비교하기 위한 dao(웅환)
+	public String isOverlab(String inputId){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String id="";
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT id FROM p_member "
+					+ "WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				id=rs.getString("id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return id;
+	}//isOverlab();
+		
+}	// Class
+
