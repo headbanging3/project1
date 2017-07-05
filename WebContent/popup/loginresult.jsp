@@ -22,11 +22,16 @@
 		if(isSave != null){ // null이 아니면 쿠키를 응답해서 id 가 저장되도록
 			//쿠키 객체를 생성
 			Cookie cookie=new Cookie("savedID",id);
+			
 			//최대 유지시간 초단위로 설정
 			cookie.setMaxAge(3600);
 			//쿠키 응답 하기 
 			response.addCookie(cookie);
 		}
+		
+		session.setAttribute("savedID", id);
+		
+		String memberld=(String)session.getAttribute("savedId");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
