@@ -11,13 +11,13 @@
 <body>
 <jsp:include page="index_navbar.jsp"></jsp:include>
 <div class="jumbotron">
-  <h3> 고객센터 페이지 입니다.</h3>
+  <h3> 고객센터 페이지 입니다..</h3>
   <h1>무엇을 도와드릴깝쇼?</h1>
   <p>...</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-<!-- 이름, 이멜, 상담 내용 form -->
+<!-- 이름, 이멜, 상담 내용 form. -->
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="">
 		<div class="form-group">
