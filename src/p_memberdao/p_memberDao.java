@@ -128,37 +128,4 @@ public class p_memberDao {
 		}
 	}//inert();
 	
-	public boolean ser_insert(p_memberDto dto){
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int flag = 0;
-		try {
-			conn = new DbcpBean().getConn();
-			String sql = "INSERT INTO p_member(mem_num,s_content) "
-					+ "VALUES(p_member_seq.NEXTVAL,?)";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getId());
-			pstmt.setString(2, dto.getPwd());
-			pstmt.setString(3, dto.getName());
-			pstmt.setString(4, dto.getPhone());
-			pstmt.setString(5, dto.getEmail());
-			pstmt.setString(6, dto.getAddr());
-			flag = pstmt.executeUpdate();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-			}
-		}
-		if (flag > 0) {
-			return true;
-		} else {
-			return false;
-		}
-	}//ser_inert();
 }	// Class

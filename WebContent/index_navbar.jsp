@@ -1,9 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String cPath=(String)request.getContextPath();
+	response.sendRedirect(cPath+"/index.jsp");
+	String id =(String) session.getAttribute("id");
+%>
 <!DOCTYPE html>
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resource/css/bootstrap.min.css" />
@@ -48,7 +52,12 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+      	<%if(id != null) {%>
+      	  <li><a href="javascript:"><%=id %> 님</a></li>
+      	  <li><a href="javascript:"> 로그아웃 </a></li>
+      	<%} else { %>
 	      <li><a href="javascript:showPopup()">회원가입/로그인</a></li>
+	    <%} %>
 	      <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
