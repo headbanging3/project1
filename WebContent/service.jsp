@@ -5,7 +5,7 @@
 <%
 	//세션에 저장된 회원의 아이디를 이용해서 회원정보를 얻어온다.
 	String id=(String)session.getAttribute("id");
-	p_memberDto dto=p_memberDao.getInstance().getData(id);
+	p_memberDto dto=p_memberDao.getInstance().sergetData(id);
 %>
 <!DOCTYPE html>
 <html>

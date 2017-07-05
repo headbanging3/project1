@@ -1,13 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <%
-	//로그인후 리다일렉트 이동할 url 주소를 읽어온다.
-	String url = request.getParameter("url");
-	if(url==null){
-		
-		url=request.getContextPath();
+	//쿠키에 저장된 아이디를 담을 변수
+	String savedId="";
+	
+	//request 객체에 담겨서 전달된 쿠키 목록을 읽어온다.
+	Cookie[] cookies=request.getCookies();
+	
+	if(cookies != null && cookies.length >0){
+		for(Cookie tmp:cookies){
+			if(tmp.getName().equals("savedID")){
+				//쿠키 value 를 읽어와서 변수에 담는다.
+				savedId=tmp.getValue();
+				
+			}
+		}
 	}
-%>
+	
+	
+	
+
+%>	
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -21,12 +37,13 @@ body{
 </head>
 <body>
 <h3>로그인 페이지</h3>
-<form action="loginresult.jsp?url=<%=url %>" method="post">
+<form action="loginresult.jsp" method="post">
 	<div class="form-group">
-	<label for="id">아이디  </label>
-	<input type="text" name="id" id="id" /><br />
+	<label for="id">아이디 &nbsp  &nbsp </label>
+	<input type="text" name="id" id="id" value="<%=savedId %>"/><br />
+	
 	<label for="pwd">비밀번호</label>
-	<input type="text" name="pwd" /><br />
+	<input type="password" name="pwd" /><br />
 	
 	<label>
 		<input type="checkbox" name="isSave" value="yes" />
@@ -40,14 +57,18 @@ body{
 </form>
 
 <form action="">
-	<button class="btn btn-defalt" id="btn" onclick="btn_click();">회원가입</button>
+	<a href="javascript:signUpBtn_click()" style="margin-right:20px;">회원가입</a>
+	<a href="javascript:findBtn_click()">아이디/비밀번호 찾기</a>
 </form>
 
 <script>
-function btn_click() {
-	opener.location.href='../member/signup_form.jsp'; 
+function signUpBtn_click() {
+	opener.location.href='../member/agreeInfo.jsp'; 
 	window.close();
-
+}
+function findBtn_click() {
+	opener.location.href='../member/findId.jsp'; 
+	window.close();
 }
 </script>
 </body>

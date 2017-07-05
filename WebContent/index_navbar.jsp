@@ -1,9 +1,11 @@
+<%@page import="p_memberdto.p_memberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String cPath=(String)request.getContextPath();
 	response.sendRedirect(cPath+"/index.jsp");
 	String id =(String) session.getAttribute("id");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.jsp">Brand</a>
+      <a class="navbar-brand" href="<%=cPath %>/index.jsp">Brand</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -80,13 +82,13 @@
 <!-- navbarmiddle -->
 <div class="col-sm-2 btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Left</button>
+    <button type="button" class="btn btn-default" onClick=menuClick('userMain');>Left</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default" onClick=menuClick('shop');>Board1</a></button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Right</button>
+    <button type="button" class="btn btn-default" onClick=menuClick();>Right</button>
   </div>
 </div>
 <!-- navbarmiddle end -->
@@ -96,14 +98,24 @@
 
  	//팝업 띄우는 함수 
 	function showPopup(){
-		window.open("popup/popup_page.jsp","팝업창","width=400,height=300,top=100,left=100");
+		window.open("<%=cPath %>/popup/popup_page.jsp","팝업창","width=400,height=300,top=100,left=100");
 	}
  	
  	// 팝업을 닫는 함수
 	function closePopup() {
 		 window.close();
 	}
-
+ 	
+ 	function menuClick(menu) {
+ 		if(menu=='userMain'){			
+ 			location.href='index.jsp';
+ 		}	
+ 		if(menu=='shop'){	
+ 			//alert(menu);
+ 			location.href='board1.jsp';
+ 		}	
+ 		
+ 	}
 
 </script>
 </body>

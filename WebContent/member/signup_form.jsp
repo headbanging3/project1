@@ -17,7 +17,9 @@
 		padding :50px;
 	}
 	#signForm div{
-		padding:30px;
+		padding:20px;		
+		width:500px;
+		height:80px;
 	}
 	button{
 		margin-left:30px;
@@ -27,9 +29,13 @@
 		width:200px;
 		height:30px;
 	}
+	
 	#idValid{
 		width:80px;
 		margin-left:10px;
+	}
+	#addr{
+		width:400px;
 	}
 </style>
 </head>
@@ -40,32 +46,35 @@
 	<div id="signForm">
 			<form action="signup.jsp" method=post id="signup">
 				<div>
-					<label for="id">* 아이디</label>
-					<input type="text" name="id" id="id" placeholder="영문자 5~15자"/>
+					<label for="id">* 아이디 : </label>
+					<input type="text" name="id" id="id"/>
+					
 					<button type="button" id="idValid" class="btn btn-primary">중복확인</button>
+					<p id="id_help" class="help-block">영문자 5~15자</p>		
 				</div>
 				<div>
-					<label for="pwd">* 비밀번호</label>
-					<input type="password" name="pwd" id="pwd" placeholder="영문자 5~15자"/><br />
+					<label for="pwd">* 비밀번호 : </label>
+					<input type="password" name="pwd" id="pwd"/><br />
+					<p id="pwd_help" class="help-block">최소 1개의 숫자 혹은 특수문자를 포함한 6~20자 사이</p>								
 				</div>
 				<div>
-					<label for="pwd2">* 비밀번호 확인</label>
+					<label for="pwd2">* 비밀번호 확인 : </label>
 					<input type="password" name="pwd2" id="pwd2"/><br />
 				</div>
 				<div>
-					<label for="name">* 이름</label>
+					<label for="name">* 이름 : </label>
 					<input type="text" name="name" id="name" /><br />
 				</div>
 				<div>
-					<label for="phone">* 번호</label>
+					<label for="phone">* 번호 : </label>
 					<input type="text" name="phone" id="phone" /><br />
 				</div>
 				<div>
-					<label for="email">이메일</label>
+					<label for="email">이메일 : </label>
 					<input type="text" name="email" id="email" /><br />
 				</div>
 				<div>
-					<label for="addr">주소</label>
+					<label for="addr">주소 : </label>
 					<input type="text" name="addr" id="addr" /><br />
 				</div>
 				<button type="submit" class="btn btn-primary">가입</button>
@@ -85,7 +94,7 @@
 	});
 	
 	var reg1= /^[a-zA-Z0-9]{4,14}$/;
-	var reg2= /^[a-zA-Z0-9]{4,14}$/;
+	var reg2= /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
 	
 	
 	$("#signup").on("submit",function(){
