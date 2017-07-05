@@ -77,6 +77,7 @@
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
+	
 	document.querySelector("cansel")
 	.addEventListener(function(){
 		location.href="../index.jsp";

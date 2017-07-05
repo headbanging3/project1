@@ -26,6 +26,9 @@
 	<p><strong><%=dto.getId() %></strong>님 로그인 되었습니다.</p>
 	<script>
 		location.href="../index.jsp"
+		 	// 팝업을 끄는 함수
+		 	self.close();
+		 	
 	</script>
 <%}else{ %>
 	<p>아이디 혹은 비밀번호가 틀립니다.</p>
