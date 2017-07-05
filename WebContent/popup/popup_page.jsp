@@ -57,14 +57,18 @@ body{
 </form>
 
 <form action="">
-	<button class="btn btn-defalt" id="btn" onclick="btn_click();">회원가입</button>
+	<a href="javascript:signUpBtn_click()" style="margin-right:20px;">회원가입</a>
+	<a href="javascript:findBtn_click()">아이디/비밀번호 찾기</a>
 </form>
 
 <script>
-function btn_click() {
+function signUpBtn_click() {
 	opener.location.href='../member/agreeInfo.jsp'; 
 	window.close();
-
+}
+function findBtn_click() {
+	opener.location.href='../member/findId.jsp'; 
+	window.close();
 }
 </script>
 </body>
