@@ -45,7 +45,7 @@
 				<td><%=tmp.getEmail() %></td>
 				<td><%=tmp.getAddr() %></td>
 				<td><%=tmp.getRegdate() %></td>
-				<td><a href="">수정</a></td>
+				<td><a href="updateform.jsp?num=<%=tmp.getMem_num()%>">수정</a></td>
 				<td><a href="">삭제</a></td>
 			</tr>
 		<%} %>
