@@ -308,12 +308,14 @@ public class p_memberDao {
 			pstmt = conn.prepareStatement(sql);	
 			
 			//? 에 수정할 회원의 정보 바인딩 하기
+			
 			pstmt.setString(1, dto.getId());
 			pstmt.setString(2, dto.getPwd());
 			pstmt.setString(3, dto.getName());
 			pstmt.setString(4, dto.getPhone());
 			pstmt.setString(5, dto.getEmail());
 			pstmt.setString(6, dto.getAddr());
+			pstmt.setInt(7, dto.getMem_num());
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
