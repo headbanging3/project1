@@ -87,7 +87,7 @@
 
  	//팝업 띄우는 함수 
 	function showPopup(){
-		window.open("signup_form.jsp","팝업창","width=400,height=300,top=100,left=100");
+		window.open("popup/popup_page.html","팝업창","width=400,height=300,top=100,left=100");
 	}
 	
 	//팝업을 중앙에 띄우는 함수 
