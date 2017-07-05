@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,14 +30,17 @@ body{
 	<button class="btn btn-primary" type="submit">    로그인    </button>
 	
 </form>
+
+<form action="">
+	<button id="btn" onclick="btn_click();">회원가입</button>
+</form>
+
 <script>
-	
-	
+function btn_click() {
+	opener.location.href='../member/signup_form.jsp'; 
+	window.close();
+
+}
 </script>
-
-
-
-<li><a href="../member/signup_form.jsp" >회원가입</a></li>
-
 </body>
 </html>
