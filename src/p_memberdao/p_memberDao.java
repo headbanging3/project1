@@ -61,13 +61,13 @@ public class p_memberDao {
 		List<p_memberDto> list = new ArrayList<>();
 		try {
 			conn = new DbcpBean().getConn();
-			String sql = "SELECT * FROM p_member order by num asc";
+			String sql = "SELECT * FROM p_member order by mem_num asc";
 			pstmt = conn.prepareStatement(sql);
 			
 			// sql문 수행하고 결과셋 받아오기
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				int num = rs.getInt("num");
+				int num = rs.getInt("mem_num");
 				String id = rs.getString("id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
