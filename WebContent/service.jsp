@@ -19,7 +19,7 @@
 
 <!-- 이름, 이멜, 상담 내용 form -->
 <div class="col-sm-8 col-sm-offset-2">
-	<form action="">
+	<form action="service/ser_insert.jsp" method="post">
 		<div class="form-group">
 			<label for="name" class="control-label"><strong>이름</strong></label>
 			<input type="text" id="name" class="form-control" />

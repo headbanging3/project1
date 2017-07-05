@@ -1,18 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" href="C:\Users\sh\git\project1\WebContent\resource/css/bootstrap.css">
-
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>index.jsp</title>
-<script src="C:\Users\sh\git\project1\WebContent\resource/js/jquery-3.2.0.js"></script>
-<script src="C:\Users\sh\git\project1\WebContent\resource/js/bootstrap.min.js"></script>
-</head>
+<title>Insert title here</title>
 <style>
-	/* »çÀÌµå¹Ù ·¡ÆÛ ½ºÅ¸ÀÏ */
+	/* ì‚¬ì´ë“œë°” ë˜í¼ ìŠ¤íƒ€ì¼ */
   
   #page-wrapper {
     padding-left: 250px;
@@ -32,7 +27,7 @@
     width: 100%;
     padding: 20px;
   }
-  /* »çÀÌµå¹Ù ½ºÅ¸ÀÏ */
+  /* ì‚¬ì´ë“œë°” ìŠ¤íƒ€ì¼ */
   
   .sidebar-nav {
     width: 250px;
@@ -61,19 +56,27 @@
     font-size: 1.3em;
     line-height: 3em;
   }
-</style>
+ </style>
+</head>
 <body>
-<h3></h3>
-
-<jsp:include page="menu.jsp"/>
-  <!-- º»¹® -->
-  <div id="page-content-wrapper">
-    <div class="container-fluid">
-      <h1>°£´ÜÇÑ »çÀÌµå¹Ù</h1>
-      <p>¸Ş´º°¡ ¸¹¾Æ¼­ ÇÑ ÆäÀÌÁö¸¦ ³ÑÀ¸¸é ¼¼·Î ½ºÅ©·Ñ¹Ù »ı±è</p>
-    </div>
+<div id="page-wrapper">
+  <!-- ì‚¬ì´ë“œë°” -->
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="index.jsp">Main</a>
+      </li>
+      <li><a href="m_list.jsp">íšŒì›ëª©ë¡ë³´ê¸°</a></li>
+      <li><a href="#">ë©”ë‰´ 2</a></li>
+      <li><a href="#">ë©”ë‰´ 3</a></li>
+      <li><a href="#">ë©”ë‰´ 4</a></li>
+      <li><a href="#">ë©”ë‰´ 5</a></li>
+      <li><a href="#">ë©”ë‰´ 6</a></li>
+      <li><a href="#">ë©”ë‰´ 7</a></li>
+      <li><a href="#">ë©”ë‰´ 8</a></li>
+      <li><a href="#">ë©”ë‰´ 9</a></li>
+    </ul>
   </div>
-  <!-- /º»¹® -->
-</div>
+  <!-- /ì‚¬ì´ë“œë°” -->
 </body>
 </html>
