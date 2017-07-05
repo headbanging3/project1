@@ -19,7 +19,7 @@ DROP TABLE p_service;
 
 CREATE TABLE p_service
 (
-	mem_num NUMBER(20) PRIMARY KEY,
+	mem_num NUMBER(20),
 	s_content CLOB,
 	CONSTRAINT FK_p_s_num FOREIGN KEY (mem_num)
     REFERENCES p_member(mem_num)
