@@ -21,7 +21,6 @@
 </head>
 <body>
 
-
 <% 
 	if(isValid){ 
 		session.setAttribute("id", dto.getId());
@@ -34,10 +33,11 @@
 		 	
 	</script>
 
-<% }else{ %>
-	<p>아이디 혹은 비밀번호가 틀립니다.</p>
+<% } else { %>
+	
 	<script>
-		location.href="../popup/popup_page.html"
+		alert("아이디 비밀번호를 확인해 주세요");
+		location.href="../popup/popup_page.html";
 	</script>
 <% } %>
 
