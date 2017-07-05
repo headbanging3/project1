@@ -126,6 +126,6 @@ public class p_memberDao {
 		} else {
 			return false;
 		}
-	}//inert()
+	}//inert();
 	
 }	// Class
