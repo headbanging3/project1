@@ -17,3 +17,6 @@ body{
 .nav > .dropdown:hover > ul{
 	display: block;
 }
+.jumbotron{
+    text-align: center;
+}
