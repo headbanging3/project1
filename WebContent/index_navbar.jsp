@@ -48,7 +48,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="javascript: showPopup()">회원가입/로그인</a></li>
+        <li><a href="popup/popup_test.html">회원가입/로그인</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -87,7 +87,7 @@
 
  	//팝업 띄우는 함수 
 	function showPopup(){
-		window.open("signup_form.jsp","팝업창","width=400,height=300,top=100,left=100");
+		window.open("popup/popup_page.html","팝업창","width=400,height=300,top=100,left=100");
 	}
 	
 	//팝업을 중앙에 띄우는 함수 
