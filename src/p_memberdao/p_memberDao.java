@@ -315,6 +315,9 @@ public class p_memberDao {
 			pstmt.setString(5, dto.getEmail());
 			pstmt.setString(6, dto.getAddr());
 			pstmt.setInt(7, dto.getMem_num());
+			
+			flag = pstmt.executeUpdate();
+			
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -338,7 +341,7 @@ public class p_memberDao {
 		p_memberDto dto=null;
 		try {
 			conn = new DbcpBean().getConn();
-			String sql = "SELECT id, pwd, name, phone, email, addr from p_member WHERE mem_num =?";
+			String sql = "SELECT id, pwd, name, phone, email, addr, regdate from p_member WHERE mem_num =?";
 			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, num);
