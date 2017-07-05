@@ -163,11 +163,11 @@ public class p_memberDao {
 		return id;
 	}//findId();
 	
-	public p_memberDto findPwd(String id, String phone){
+	public String findPwd(String id, String phone){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+		String pwd="";
 		try {
 			conn = new DbcpBean().getConn();
 			String sql = "SELECT pwd FROM p_member "
@@ -177,7 +177,7 @@ public class p_memberDao {
 			pstmt.setString(2, phone);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				
+				pwd=rs.getString("pwd");
 			}
 
 		} catch (Exception e) {
@@ -192,9 +192,8 @@ public class p_memberDao {
 					conn.close();
 			} catch (Exception e) {
 			}
-		}return null;
-
-	}
+		}return pwd;
+	}//findPwd();
 
 	
 	// 회원 정보 수정
@@ -270,8 +269,36 @@ public class p_memberDao {
 		return dto;
 	}	
 	
-	
-	
+	public String isOverlab(String inputId){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String id="";
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT id FROM p_member "
+					+ "WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, inputId);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				id=rs.getString("id");
+			}
 
-	
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		return id;
+	}//isOverlab();
+		
 }	// Class

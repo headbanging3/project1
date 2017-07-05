@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	//회원가입 버튼 클릭시 이뤄지는 jsp페이지
 	request.setCharacterEncoding("utf-8");
 	String id=request.getParameter("id");
 	String pwd=request.getParameter("pwd");
