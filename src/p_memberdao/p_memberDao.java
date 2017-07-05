@@ -7,6 +7,9 @@ import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import oracle.jdbc.driver.*;
+import oracle.sql.CLOB;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +146,8 @@ public class p_memberDao {
 		}
 	}// inert();
 
-	// 회원 가입된 정보를 리턴해주는 메소드
+	//고객센터 페이지 문의하러 가기에서 
+	//폼에 회원 정보가져오는 service getdata (재두)
 	public p_memberDto sergetData(String id) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -177,55 +181,51 @@ public class p_memberDao {
 		return dto;
 	}
 
+	
+	//고객센터 페이지 문의하러 가기에서 
+	//service insert(재두) 
 	public boolean serinsert(int mem_num, String s_content) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		boolean flag = false;
+		int flag = 0;
 		try {
 			conn = new DbcpBean().getConn();
+			conn.setAutoCommit(false);
 			String strQuery = "INSERT INTO p_service(mem_num,s_content) " + "VALUES(?,EMPTY_CLOB())";
 			pstmt = conn.prepareStatement(strQuery);
 			pstmt.setInt(1, mem_num);
-			pstmt.executeUpdate();
+			flag = pstmt.executeUpdate();
 			pstmt.close();
 
-			strQuery = "SELECT s_content FROM p_service WHERE mem_num = ? FOR UPDATE";
-			pstmt = conn.prepareStatement(strQuery);
-			pstmt.setInt(1, mem_num);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				Clob clob = rs.getClob(1);
-				Writer writer = clob.getCharacterOutputStream();
-				Reader src = new CharArrayReader("s_content".toCharArray());
-				char[] buffer = new char[1024];
-				int read = 0;
-				while ((read = src.read(buffer, 0, 1024)) != -1) {
-					writer.write(buffer, 0, read); // write clob.
+			if(flag == 1) {
+				strQuery = "SELECT s_content FROM p_service WHERE mem_num = ? FOR UPDATE";
+				pstmt = conn.prepareStatement(strQuery);
+				pstmt.setInt(1, mem_num);
+				rs = pstmt.executeQuery();
+				
+				String strCLOB=s_content;
+				if(rs.next()) {
+					CLOB clob = ((OracleResultSet)rs).getCLOB("s_content");
+					Writer writer = clob.getCharacterOutputStream();
+					Reader reader = new CharArrayReader(strCLOB.toCharArray());
+					char[] buffer = new char[1024];
+					int read = 0;
+					
+					while((read = reader.read(buffer, 0, 1024)) != -1) {
+						writer.write(buffer, 0, read);
+					}
+					reader.close();
+					writer.close();
 				}
-				src.close();
-				writer.close();
+				conn.commit();
+				conn.setAutoCommit(true);
+				rs.close();
 			}
-			conn.commit();
-			conn.setAutoCommit(true);
-
-			flag = true;
-			return flag;
-
+			conn.close();			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-			}
-		}
-		if (flag > 0) {
+		} if(flag==1){
 			return true;
 		} else {
 			return false;
