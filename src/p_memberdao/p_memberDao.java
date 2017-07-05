@@ -128,7 +128,6 @@ public class p_memberDao {
 		}
 	}//inert();
 	
-
 	//회원 가입된 정보를 리턴해주는 메소드
 		public p_memberDto getData(String id){
 			Connection conn = null;
@@ -166,7 +165,74 @@ public class p_memberDao {
 			}
 				return dto;
 		}
+
+	public String findId(String name, String email){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		p_memberDto dto=new p_memberDto();
+		String id="";
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT id FROM p_member "
+					+ "WHERE name=? AND email=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				id=rs.getString("id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+				
+			} catch (Exception e) {
+			}
+		}
+		return id;
+	}//findId();
 	
+	public p_memberDto findPwd(String id, String phone){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT pwd FROM p_member "
+					+ "WHERE id=? AND phone=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}return null;
+
+	}
+
 	// 회원 정보 수정
 	public boolean update(p_memberDto dto) {
 		Connection conn = null;
@@ -239,5 +305,6 @@ public class p_memberDao {
 		//회원 한명의 정보가 담겨 있는 MemberDto 객체를 리턴해준다.
 		return dto;
 	}	
+
 }	// Class
 
