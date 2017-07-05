@@ -215,6 +215,43 @@ public class p_memberDao {
 		}
 	}//serinert();
 	
+	//회원 가입된 정보를 리턴해주는 메소드
+		public p_memberDto getData(String id){
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			p_memberDto dto=null;
+			try {
+				conn = new DbcpBean().getConn();
+				String sql = "SELECT pwd,name,phone,email,addr,regdate FROM p_member WHERE id=?";
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, id);
+				rs = pstmt.executeQuery();
+				while (rs.next()) {
+					dto=new p_memberDto();
+					dto.setId(id);
+					dto.setPwd(rs.getString("pwd"));
+					dto.setName(rs.getString("name"));
+					dto.setPhone(rs.getString("phone"));
+					dto.setEmail(rs.getString("email"));
+					dto.setAddr(rs.getString("addr"));
+					dto.setRegdate(rs.getString("regdate"));
+				}
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} finally {
+				try {
+					if (rs != null)
+						rs.close();
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+				return dto;
+		}
 
 	public String findId(String name, String email){
 		Connection conn = null;
@@ -283,7 +320,6 @@ public class p_memberDao {
 
 	}
 
-	
 	// 회원 정보 수정
 	public boolean update(p_memberDto dto) {
 		Connection conn = null;
@@ -358,3 +394,4 @@ public class p_memberDao {
 	}	
 
 }	// Class
+
