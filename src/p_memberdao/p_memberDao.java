@@ -1,14 +1,17 @@
 package p_memberdao;
 
 
+import java.io.Reader;
+import java.io.Writer;
+import java.sql.Clob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import p_memberdto.p_memberDto;
 
+import p_memberdto.p_memberDto;
 import util.DbcpBean;
 
 public class p_memberDao {
@@ -165,15 +168,35 @@ public class p_memberDao {
 	public boolean serinsert(int mem_num, String s_content){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		int flag = 0;
 		try {
 			conn = new DbcpBean().getConn();
-			String sql = "INSERT INTO p_service(mem_num,s_content) "
-					+ "VALUES(?,?)";
-			pstmt = conn.prepareStatement(sql);
+			String strQuery = "INSERT INTO p_service(mem_num,s_content) "
+					+"VALUES(?,EMPTY_CLOB())";
 			pstmt.setInt(1, mem_num);
-			pstmt.setString(2, s_content);
-			flag = pstmt.executeUpdate();
+			
+			flag = pstmt.executeUpdate(strQuery);
+			if(flag == 1){
+				strQuery = "SELECT s_content FROM p_service WHERE mem_num = ? FOR UPDATE";
+				pstmt = conn.prepareStatement(strQuery);
+				rs=pstmt.executeQuery(strQuery);
+				if( rs.next() ) {
+	                Clob clob=null;
+	                Writer writer=null;
+	                Reader src=null;
+	                char[] buffer=null;
+	                int read=0;
+	                clob=
+	                
+	                
+	                while ((read = reader.read(buffer, 0, 1024)) != -1) {
+	                    writer.write(buffer, 0, read);
+	                }
+	                reader.close();
+	                writer.close();
+	            }
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

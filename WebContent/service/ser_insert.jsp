@@ -4,12 +4,11 @@
 <jsp:useBean id="dto" class="p_memberdto.p_memberDto"/>
 <jsp:setProperty property="*" name="dto"/>
 <%
-	response.setCharacterEncoding("utf-8");
 	request.setCharacterEncoding("utf-8");
 	int mem_num = Integer.parseInt(request.getParameter("mem_num"));
 	String name = request.getParameter("name");
 	String email = request.getParameter("email");
-	String s_content = request.getParameter("s_content");
+	String s_content =  request.getParameter("s_content");
 	
 	boolean isSuccess=p_memberDao.getInstance().serinsert(mem_num, s_content);
 %>
