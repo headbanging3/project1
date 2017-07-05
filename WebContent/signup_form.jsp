@@ -10,7 +10,7 @@
 </style>
 </head>
 <body>
-<h3>회원가입 페이지 입니다.ㅇㄴㅇ</h3>
+<h3>회원가입 페이지 입니다.</h3>
 <div class="container">
 	<form action="signup.jsp" method="post">
 		<label for="id">아이디</label>
