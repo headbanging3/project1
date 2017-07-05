@@ -17,7 +17,7 @@
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-<!-- 이름, 이멜, 상담 내용 form -->
+<!-- 이름, 이멜, 상담 내용 form. -->
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="">
 		<div class="form-group">
