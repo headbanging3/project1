@@ -108,11 +108,11 @@
  	
  	function menuClick(menu) {
  		if(menu=='userMain'){			
- 			location.href='index.jsp';
+ 			location.href='<%=cPath %>/user_page/index.jsp';
  		}	
  		if(menu=='shop'){	
  			//alert(menu);
- 			location.href='board1.jsp';
+ 			location.href='<%=cPath %>/user_page/detail.jsp';
  		}	
  		
  	}
