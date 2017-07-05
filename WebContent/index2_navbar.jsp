@@ -6,12 +6,8 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%
-String cPath=request.getContextPath();
-
-%>
-<link rel="stylesheet" href="<%=cPath %>/resource/css/bootstrap.min.css" />
-<link rel="stylesheet" href="<%=cPath %>/resource/css/custom.css" />
+<link rel="stylesheet" href="resource/css/bootstrap.min.css" />
+<link rel="stylesheet" href="resource/css/custom.css" />
 </head>
 <body>
 <!-- navbartop -->
@@ -52,7 +48,8 @@ String cPath=request.getContextPath();
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-	      <li><a href="javascript:showPopup()">회원가입/로그인</a></li>
+	      
+	      <li><a href="popup/logout.jsp">로그아웃</a></li>
 	      <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
 	          <ul class="dropdown-menu" role="menu">
@@ -63,7 +60,7 @@ String cPath=request.getContextPath();
 	            <li><a href="#">주문 취소 및 교환</a></li>
 	            <li><a href="#">반품</a></li>
 	            <li class="divider"></li>
-	            <li><a href="<%=cPath %>/service.jsp">문의하러 가기</a></li>
+	            <li><a href="service.jsp">문의하러 가기</a></li>
         	  </ul>
      	   </li>
      	 </ul>

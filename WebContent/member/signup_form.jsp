@@ -80,6 +80,7 @@
 	var isValPwd=false;
 
 	$("#cancel").on("click",function(){
+
 		location.href="../index.jsp";
 	});
 	
