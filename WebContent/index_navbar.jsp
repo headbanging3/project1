@@ -54,7 +54,7 @@
       <ul class="nav navbar-nav navbar-right">
       	<%if(id != null) {%>
       	  <li><a href="javascript:"><%=id %> 님</a></li>
-      	  <li><a href="javascript:"> 로그아웃 </a></li>
+      	  <li><a href="popup/logout.jsp"> 로그아웃 </a></li>
       	<%} else { %>
 	      <li><a href="javascript:showPopup()">회원가입/로그인</a></li>
 	    <%} %>
