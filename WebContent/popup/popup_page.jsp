@@ -62,7 +62,7 @@ body{
 
 <script>
 function btn_click() {
-	opener.location.href='../member/signup_form.jsp'; 
+	opener.location.href='../member/agreeInfo.jsp'; 
 	window.close();
 
 }
