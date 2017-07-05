@@ -39,6 +39,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="../index_navbar.jsp"></jsp:include>
 <div class="container">
 <h3>회원가입</h3>
 	<div id="signForm">
@@ -76,6 +77,7 @@
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
+	
 	document.querySelector("cansel")
 	.addEventListener(function(){
 		location.href="../index.jsp";
