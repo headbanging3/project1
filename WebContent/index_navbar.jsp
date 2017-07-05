@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="resource/css/custom.css" />
 </head>
 <body>
-
 <!-- navbartop -->
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -22,9 +21,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="index.jsp">Brand</a>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
@@ -50,18 +48,18 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">ȸ������/�α���</a></li>
+        <li><a href="javascript: showPopup()">회원가입/로그인</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">�������� <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">BEST FAQ</a></li>
-            <li><a href="#">��ǰ����</a></li>
-            <li><a href="#">�ֹ�/����</a></li>
-            <li><a href="#">���</a></li>
-            <li><a href="#">�ֹ� ��� �� ��ȯ</a></li>
-            <li><a href="#">��ǰ</a></li>
+            <li><a href="#">상품문의</a></li>
+            <li><a href="#">주문/결제</a></li>
+            <li><a href="#">배송</a></li>
+            <li><a href="#">주문 취소 및 교환</a></li>
+            <li><a href="#">반품</a></li>
             <li class="divider"></li>
-            <li><a href="service.jsp">�����Ϸ� ����</a></li>
+            <li><a href="service.jsp">문의하러 가기</a></li>
           </ul>
         </li>
       </ul>
@@ -85,5 +83,18 @@
 <!-- navbarmiddle end -->
 <script src="resource/js/jquery-3.2.0.js"></script>
 <script src="resource/js/bootstrap.min.js"></script>
+<script>
+
+ 	//팝업 띄우는 함수 
+	function showPopup(){
+		window.open("signup_form.jsp","팝업창","width=400,height=300,top=100,left=100");
+	}
+	
+	//팝업을 중앙에 띄우는 함수 
+	function showPopup2(){
+		PopupCenter("signup_form.jsp","팝업창", 400, 400);
+	}
+
+</script>
 </body>
 </html>

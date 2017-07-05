@@ -1,13 +1,14 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<h3>¸ÞÀÎ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
-<li><a href="manager/">°ü¸®ÀÚÆäÀÌÁö</a></li>
+<jsp:include page="index_navbar.jsp"></jsp:include>
+<h3>ë©”ì¸ íŽ˜ì´ì§€ ìž…ë‹ˆë‹¤.</h3>
+<li><a href="manager/">ê´€ë¦¬ìžíŽ˜ì´ì§€</a></li>
 </body>
 </html>

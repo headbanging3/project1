@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,103 +9,28 @@
 <link rel="stylesheet" href="resource/css/custom.css" />
 </head>
 <body>
-<<<<<<< HEAD
-<!-- navbartop! -->
-=======
-<!-- navbartop!!!!! -->
->>>>>>> manager
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index_navbar.jsp">Brand</a>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">È¸¿ø°¡ÀÔ/·Î±×ÀÎ</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">°í°´¼¾ÅÍ <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">BEST FAQ</a></li>
-            <li><a href="#">»óÇ°¹®ÀÇ</a></li>
-            <li><a href="#">ÁÖ¹®/°áÁ¦</a></li>
-            <li><a href="#">¹è¼Û</a></li>
-            <li><a href="#">ÁÖ¹® Ãë¼Ò ¹× ±³È¯</a></li>
-            <li><a href="#">¹İÇ°</a></li>
-            <li class="divider"></li>
-            <li><a href="#">¹®ÀÇÇÏ·¯ °¡±â</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<!-- navbartop end -->
-
-<!-- navbarmiddle -->
-<div class="btn-group btn-group-justified" role="group" aria-label="...">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Left</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Middle</button>
-  </div>
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Right</button>
-  </div>
-</div>
-<!-- navbarmiddle end -->
+<jsp:include page="index_navbar.jsp"></jsp:include>
 <div class="jumbotron">
-  <h3> °í°´¼¾ÅÍ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
-  <h1>¹«¾ùÀ» µµ¿Íµå¸±±î¿ä?</h1>
+  <h3> ê³ ê°ì„¼í„° í˜ì´ì§€ ì…ë‹ˆë‹¤..</h3>
+  <h1>ë¬´ì—‡ì„ ë„ì™€ë“œë¦´ê¹ì‡¼?</h1>
   <p>...</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-<!-- ÀÌ¸§, ÀÌ¸á, »ó´ã ³»¿ë form -->
+<!-- ì´ë¦„, ì´ë©œ, ìƒë‹´ ë‚´ìš© form. -->
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="">
 		<div class="form-group">
-			<label for="name" class="control-label"><strong>ÀÌ¸§</strong></label>
+			<label for="name" class="control-label"><strong>ì´ë¦„</strong></label>
 			<input type="text" id="name" class="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="email"><strong>ÀÌ¸ŞÀÏ</strong></label>
+			<label for="email"><strong>ì´ë©”ì¼</strong></label>
 			<input type="email" id="email" class="form-control"/>
-			<p class="help-block">´äº¯ ¹ŞÀ» ÀÌ¸ŞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.</p>
+			<p class="help-block">ë‹µë³€ ë°›ì„ ì´ë©”ì¼ì„ ì…ë ¥í•˜ì„¸ìš”.</p>
 		</div>
-		<strong>¹®ÀÇ³»¿ë</strong><textarea class="form-control" rows="7"></textarea>
-		<button type="submit" class="btn btn-default">Á¦Ãâ</button>
+		<strong>ë¬¸ì˜ë‚´ìš©</strong><textarea class="form-control" rows="7"></textarea>
+		<button type="submit" class="btn btn-default">ì œì¶œ</button>
 	</form>
 </div>
 
