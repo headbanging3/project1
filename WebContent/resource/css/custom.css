@@ -1,7 +1,9 @@
-@CHARSET "EUC-KR";
-
+@import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300');
+nav, .btn-group{
+    font-family: 'Lobster', cursive;
+}
 /*
-* index_navbar css
+* index_navbar csss
 */
 
 .navbar{
