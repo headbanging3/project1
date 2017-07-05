@@ -82,13 +82,13 @@
 <!-- navbarmiddle -->
 <div class="col-sm-2 btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Left</button>
+    <button type="button" class="btn btn-default" onClick=menuClick('userMain');>Left</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default"><a href="board1.jsp">Board1</a></button>
+    <button type="button" class="btn btn-default" onClick=menuClick('shop');>Board1</a></button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Right</button>
+    <button type="button" class="btn btn-default" onClick=menuClick();>Right</button>
   </div>
 </div>
 <!-- navbarmiddle end -->
@@ -105,7 +105,17 @@
 	function closePopup() {
 		 window.close();
 	}
-	
+ 	
+ 	function menuClick(menu) {
+ 		if(menu=='userMain'){			
+ 			location.href='index.jsp';
+ 		}	
+ 		if(menu=='shop'){	
+ 			//alert(menu);
+ 			location.href='board1.jsp';
+ 		}	
+ 		
+ 	}
 
 </script>
 </body>

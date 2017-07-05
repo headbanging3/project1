@@ -19,71 +19,44 @@
                                         </div>
                                     </div>
                                     <div id="thumbs" class="navigation">
-                                         <ul class="thumbs noscript">
+                                        <ul class="thumbs noscript">
                                             <li>
-                                                <a class="thumb" href="images/nike1.png" title=""> <img  src="images/nike1.png" alt="" /><span></span> </a>
+                                                <a class="thumb" href="images/n1.png" title=""> <img  src="images/n1.png" alt="" /><span></span> </a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/nike2.png" title=""> <img  src="images/nike2.png" alt="" /> <span></span></a>
+                                                <a class="thumb" href="images/n2.png" title=""> <img  src="images/n2.png" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/nike3.png" title=""> <img  src="images/nike3.png" alt="" /> <span></span></a>
+                                                <a class="thumb" href="images/n3.png" title=""> <img  src="images/n3.png" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/nike4.png" title=""> <img  src="images/nike4.png" alt="" /> <span></span></a>
+                                                <a class="thumb" href="images/n4.png" title=""> <img  src="images/n4.png" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/nike5.png" title=""> <img  src="images/nike5.png" alt="" /> <span></span></a>
+                                                <a class="thumb" href="images/n5.png" title=""> <img  src="images/n5.png" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/nike6.png" title=""> <img  src="images/nike6.png" alt="" /> <span></span></a>
+                                                <a class="thumb" href="images/n6.png" title=""> <img  src="images/n6.png" alt="" /> <span></span></a>
                                             </li>           
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="inner">
+                                <div class="inner-2">
                                     <div class="wrapper">
-                                        <span class="title img-indent3">HELLO!</span>
+                                        <span class="title t2 img-indent3">조던고추장</span>
                                         <div class="extra-wrap indent-top2">
-                                        	<strong>나이키신발</strong>장사시작한다. 6개로 시작한다.
+                                        	상품설명, 가격
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            
+                          
                         </div>
                     </div>
                 </div>
             </div>	
         </div>
-        <div class="bg-bot">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="wrapper">
-                    	<article class="grid_4">
-                        	<h3 class="prev-indent-bot">About Us</h3>
-                            <p class="prev-indent-bot">This <a target="_blank" href="http://blog.templatemonster.com/2011/08/22/free-website-template-clean-style-interior/ ">Interior Design Template</a> goes with two pack ages: with PSD source files and without them.</p>
-                            PSD source files are available for free for the registered members of Templates.com. The basic package (without PSD source) is available for anyone without registration.
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot">Testimonials</h3>
-                            <div class="quote">
-                            	<p class="prev-indent-bot">At vero eos et accusamus et iusto odio tium voluptatum deleniti atque corrupti quos<br> dolores et quas molestias excepturi sint occaecati cupiditate.</p>
-                                <h5>James Reese</h5>
-                                Managing Director
-                            </div>
-                        </article>
-                        <article class="grid_4">
-                        	<h3 class="prev-indent-bot">What’s New?</h3>
-                            <time class="tdate-1" datetime="2011-08-15"><a class="link" href="#">15.08.2011</a></time>
-                            <p class="prev-indent-bot">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.</p>
-                            <time class="tdate-1" datetime="2011-08-11"><a class="link" href="#">11.08.2011</a></time>
-                            Totam rem aperiam, eaque ipsa quae ab illo inven tore veritatis et quasi architecto.
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </section>
     
 	<!--==============================footer=================================-->
@@ -93,6 +66,21 @@
     	<div class=footer-bottom>
     	</div>
     </footer>
+    <script type="text/javascript">
+		$(document).ready(function() { 
+			$(".jCarouselLite").jCarouselLite({
+				  btnNext: ".next",
+				  btnPrev: ".prev",		  
+				  speed: 400,		  
+				  vertical: false,
+				  circular: true,
+				  easing:'easeOutQuart',
+				  visible: 4,
+				  start: 0,
+				  scroll: 1
+			 });
+		});
+	</script>
     <script type="text/javascript">
 			$(window).load(function() {
 			// We only want these styles applied when javascript is enabled
@@ -146,5 +134,6 @@
 			});
 		});
 	</script>
+	
 </body>
 </html>

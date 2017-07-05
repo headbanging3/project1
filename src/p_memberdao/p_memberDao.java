@@ -128,6 +128,74 @@ public class p_memberDao {
 		}
 	}//inert();
 	
+
+	public String findId(String name, String email){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		p_memberDto dto=new p_memberDto();
+		String id="";
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT id FROM p_member "
+					+ "WHERE name=? AND email=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				id=rs.getString("id");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+				
+			} catch (Exception e) {
+			}
+		}
+		return id;
+	}//findId();
+	
+	public p_memberDto findPwd(String id, String phone){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT pwd FROM p_member "
+					+ "WHERE id=? AND phone=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, phone);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}return null;
+
+	}
+
 	
 	// 회원 정보 수정
 	public boolean update(p_memberDto dto) {
@@ -204,5 +272,6 @@ public class p_memberDao {
 	
 	
 	
+
 	
 }	// Class
