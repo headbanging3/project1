@@ -6,8 +6,12 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resource/css/bootstrap.min.css" />
-<link rel="stylesheet" href="resource/css/custom.css" />
+<%
+String cPath=request.getContextPath();
+
+%>
+<link rel="stylesheet" href="<%=cPath %>/resource/css/bootstrap.min.css" />
+<link rel="stylesheet" href="<%=cPath %>/resource/css/custom.css" />
 </head>
 <body>
 <!-- navbartop -->
@@ -59,7 +63,7 @@
 	            <li><a href="#">주문 취소 및 교환</a></li>
 	            <li><a href="#">반품</a></li>
 	            <li class="divider"></li>
-	            <li><a href="service.jsp">문의하러 가기</a></li>
+	            <li><a href="<%=cPath %>/service.jsp">문의하러 가기</a></li>
         	  </ul>
      	   </li>
      	 </ul>

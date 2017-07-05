@@ -5,19 +5,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>/member/signup_form.jsp</title>
-<link rel="stylesheet" href="../resource/css/bootstrap.min.css" />
 <style>
 	.container{
 		margin: 0 auto;
 		border: 1px solid red;
 		text-align:center;
 		padding-top:100px;
-		
 	}
 	#signForm{
 		display:inline-block;
 		padding :50px;
-		
 	}
 	#signForm div{
 		padding:30px;
@@ -25,9 +22,7 @@
 	button{
 		margin-left:30px;
 		width:200px;
-		
 	}
-	
 	input{
 		width:200px;
 		height:30px;
@@ -43,22 +38,26 @@
 <div class="container">
 <h3>회원가입</h3>
 	<div id="signForm">
-			<form action="signup.jsp" method="post" id="signup">
+			<form action="signup.jsp" method=post id="signup">
 				<div>
-					<label for="id">아이디</label>
+					<label for="id">* 아이디</label>
 					<input type="text" name="id" id="id" placeholder="영문자 5~15자"/>
 					<button type="button" id="idValid" class="btn btn-primary">중복확인</button>
 				</div>
 				<div>
-					<label for="pwd">비밀번호</label>
+					<label for="pwd">* 비밀번호</label>
 					<input type="password" name="pwd" id="pwd" placeholder="영문자 5~15자"/><br />
 				</div>
 				<div>
-					<label for="name">이름</label>
+					<label for="pwd2">* 비밀번호 확인</label>
+					<input type="password" name="pwd2" id="pwd2"/><br />
+				</div>
+				<div>
+					<label for="name">* 이름</label>
 					<input type="text" name="name" id="name" /><br />
 				</div>
 				<div>
-					<label for="phone">번호</label>
+					<label for="phone">* 번호</label>
 					<input type="text" name="phone" id="phone" /><br />
 				</div>
 				<div>
@@ -70,15 +69,17 @@
 					<input type="text" name="addr" id="addr" /><br />
 				</div>
 				<button type="submit" class="btn btn-primary">가입</button>
-				<button id="cancel" class="btn btn-primary">취소</button>	
+				<button type="button" id="cancel" class="btn btn-primary">취소</button>	
 			</form>
 		</div>
 	
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
-	document.querySelector("cansel")
-	.addEventListener(function(){
+	var isValId=false;
+	var isValPwd=false;
+
+	$("#cancel").on("click",function(){
 		location.href="../index.jsp";
 	});
 	
@@ -87,23 +88,34 @@
 	
 	
 	$("#signup").on("submit",function(){
-		var inputId=$("#id").val();
-		var inputPwd=$("pwd").val();
-		
+		var inputPwd=$("#pwd").val();
+		var inputPwd2=$("#pwd2").val();
 		var pwdMatching=reg2.test(inputPwd);
-		
+		if(pwdMatching && inputPwd==inputPwd2){
+			isValPwd=true;
+			console.log("isValPwd=true");
+		}
+		if(isValId==false){
+			alert("아이디 중복환인을 눌러주세요");
+			return false;
+		}else if(isValPwd==false){
+			alert("비밀번호를 확인해주세요");
+			return false;
+		}
 	});
 	
-	$("idValid").on("click",function(){
+	$("#idValid").on("click",function(){
 		var inputId=$("#id").val();
 		var idMatching=reg1.test(inputId);
+		console.log(idMatching);
 		if(idMatching){
-			alert("이용 가능합니다.")
-			return false;
+			alert("이용 가능합니다.");
+			isValId=true;
+			console.log("isValId=true");
 		}else{
 			alert("아이디 형식을 확인하세요");
-			$("#id")focus();
-			return false;
+			console.log("isValId=false");
+			$("#id").focus();
 		}
 	});
 </script>

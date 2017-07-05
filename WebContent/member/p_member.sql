@@ -11,3 +11,6 @@ CREATE TABLE p_member
 );
 
 CREATE SEQUENCE p_member_seq;
+
+INSERT INTO p_member(mem_num,id,pwd,name,phone,email,addr,regdate) VALUES(p_member_seq.NEXTVAL,'aaa','aaa','aaa','aaa','aaa','aaa',SYSDATE);
+
