@@ -85,7 +85,7 @@
     <button type="button" class="btn btn-default">Left</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default"><a href="board1.jsp">Board1</a></button>
   </div>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default">Right</button>
@@ -105,7 +105,7 @@
 	function closePopup() {
 		 window.close();
 	}
-
+	
 
 </script>
 </body>
