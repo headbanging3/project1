@@ -5,7 +5,8 @@
 <jsp:setProperty property="*" name="dto"/> 
 <%
 	boolean isValid=p_memberDao.getInstance().isValid(dto);	
-
+	String cPath=request.getContextPath();
+	
 	//로그인후 리다일렉트 이동할 url 주소
 	String url=request.getParameter("url");
 	if(url==null){
@@ -20,21 +21,25 @@
 </head>
 <body>
 
-<% if(isValid){ 
-	session.setAttribute("id", dto.getId()); %>
-
-	<p><strong><%=dto.getId() %></strong>님 로그인 되었습니다.</p>
-	<script>window.close();
-	location.href="../index2_navbar.jsp"
+<% 
+	if(isValid){ 
+		session.setAttribute("id", dto.getId());
+		
+%>
+	<script>
+			opener.location.reload();
+		 	// 팝업을 끄는 함수
+		 	self.close();
+		 	
 	</script>
-		 
-<%}else{ %>
+
+<% } else { %>
 	
 	<script>
 		alert("아이디 비밀번호를 확인해 주세요");
 		location.href="../popup/popup_page.html";
 	</script>
-<%} %>
+<% } %>
 
 
 </body>
