@@ -1,9 +1,11 @@
+<%@page import="p_memberdto.p_memberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String cPath=(String)request.getContextPath();
 	response.sendRedirect(cPath+"/index.jsp");
 	String id =(String) session.getAttribute("id");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -83,7 +85,7 @@
     <button type="button" class="btn btn-default">Left</button>
   </div>
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default">Middle</button>
+    <button type="button" class="btn btn-default"><a href="board1.jsp">Board1</a></button>
   </div>
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default">Right</button>
@@ -103,7 +105,7 @@
 	function closePopup() {
 		 window.close();
 	}
-
+	
 
 </script>
 </body>

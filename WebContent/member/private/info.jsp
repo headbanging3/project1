@@ -51,6 +51,6 @@
 		</tr>
 	</tbody>
 </table>
-
+<a href="updateform.jsp">가입 정보 수정</a>
 </body>
 </html>
