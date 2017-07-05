@@ -16,6 +16,7 @@
 	//폼전송 파라미터를 읽어온다.
 		String id= request.getParameter("id");
 		String pwd= request.getParameter("pwd");
+		
 		//아이디 저장 checkbox 를 체크 했으면 null 이 아니다.
 		String isSave=request.getParameter("isSave");
 		
@@ -23,7 +24,7 @@
 			//쿠키 객체를 생성
 			Cookie cookie=new Cookie("savedID",id);
 			//최대 유지시간 초단위로 설정
-			cookie.setMaxAge(60);
+			cookie.setMaxAge(3600);
 			//쿠키 응답 하기 
 			response.addCookie(cookie);
 		}

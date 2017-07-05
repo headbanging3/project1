@@ -7,8 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import p_memberdto.p_memberDto;
+
 import util.DbcpBean;
 
 public class p_memberDao {
@@ -128,6 +128,7 @@ public class p_memberDao {
 		}
 	}//inert();
 	
+
 	public String findId(String name, String email){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -194,5 +195,83 @@ public class p_memberDao {
 		}return null;
 
 	}
+
+	
+	// 회원 정보 수정
+	public boolean update(p_memberDto dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "UPDATE p_member SET id=?, pwd=?, name=?, phone=?, email=?, addr=? WHERE mem_num = ?";
+			pstmt = conn.prepareStatement(sql);	
+			
+			//? 에 수정할 회원의 정보 바인딩 하기
+			pstmt.setString(1, dto.getId());
+			pstmt.setString(2, dto.getPwd());
+			pstmt.setString(3, dto.getName());
+			pstmt.setString(4, dto.getPhone());
+			pstmt.setString(5, dto.getEmail());
+			pstmt.setString(6, dto.getAddr());
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt!=null) pstmt.close();
+				if(conn!=null) conn.close();
+			} catch(Exception e){}
+		}
+		if(flag>0)
+			return true;
+		else 
+			return false;
+		
+	}	// update();
+	
+	//인자로 전달된 번호에 해당하는 회원정보를 리턴해주는 메소드
+	public p_memberDto getData(int num){
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		p_memberDto dto=null;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT id, pwd, name, phone, email, addr from p_member WHERE mem_num =?";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			// select 문 수행하고 결과값을 ResultSet 으로 받아오기
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				String id = rs.getString("id");
+				String pwd = rs.getString("pwd");
+				String name = rs.getString("name");
+			
+				String phone = rs.getString("phone");
+				String email = rs.getString("email");
+				String addr = rs.getString("addr");
+				String regdate = rs.getString("regdate");
+				
+				dto = new p_memberDto(num, id, pwd, name, phone, email, addr, regdate);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try{
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			}catch(Exception e){}
+		}
+		//회원 한명의 정보가 담겨 있는 MemberDto 객체를 리턴해준다.
+		return dto;
+	}	
+	
+	
+	
+
 	
 }	// Class
