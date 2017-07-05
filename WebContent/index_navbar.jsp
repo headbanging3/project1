@@ -96,7 +96,7 @@
 
  	//팝업 띄우는 함수 
 	function showPopup(){
-		window.open("popup/popup_page.jsp","팝업창","width=400,height=300,top=100,left=100");
+		window.open("<%=cPath %>/popup/popup_page.jsp","팝업창","width=400,height=300,top=100,left=100");
 	}
  	
  	// 팝업을 닫는 함수

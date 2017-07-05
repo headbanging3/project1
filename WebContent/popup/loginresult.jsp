@@ -23,7 +23,7 @@
 			//쿠키 객체를 생성
 			Cookie cookie=new Cookie("savedID",id);
 			//최대 유지시간 초단위로 설정
-			cookie.setMaxAge(60);
+			cookie.setMaxAge(3600);
 			//쿠키 응답 하기 
 			response.addCookie(cookie);
 		}
