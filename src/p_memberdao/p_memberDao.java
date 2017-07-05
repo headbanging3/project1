@@ -127,6 +127,70 @@ public class p_memberDao {
 			return false;
 		}
 	}//inert();
+
+	//회원 가입된 정보를 리턴해주는 메소드
+	public p_memberDto sergetData(String id){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		p_memberDto dto=null;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "SELECT mem_num,name,email FROM p_member"
+						+" WHERE id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				dto=new p_memberDto();
+				dto.setMem_num(Integer.parseInt(rs.getString("mem_num")));
+				dto.setName(rs.getString("name"));
+				dto.setEmail(rs.getString("email"));
+			}
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {}
+		}
+		return dto;
+	}
+	
+	public boolean serinsert(int mem_num, String s_content){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try {
+			conn = new DbcpBean().getConn();
+			String sql = "INSERT INTO p_service(mem_num,s_content) "
+					+ "VALUES(?,?)";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mem_num);
+			pstmt.setString(2, s_content);
+			flag = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
+		}
+		if (flag > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}//serinert();
 	
 	//회원 가입된 정보를 리턴해주는 메소드
 		public p_memberDto getData(String id){
