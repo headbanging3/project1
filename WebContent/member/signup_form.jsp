@@ -39,6 +39,7 @@
 </style>
 </head>
 <body>
+<jsp:include page="../index_navbar.jsp"></jsp:include>
 <div class="container">
 <h3>회원가입</h3>
 	<div id="signForm">

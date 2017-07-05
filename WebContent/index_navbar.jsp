@@ -48,7 +48,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="popup/popup_test.html">회원가입/로그인</a></li>
+        <li><a href="javascript:showPopup()">회원가입/로그인</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">고객센터 <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -93,6 +93,23 @@
 	//팝업을 중앙에 띄우는 함수 
 	function showPopup2(){
 		PopupCenter("signup_form.jsp","팝업창", 400, 400);
+	}
+	function PopupCenter(url, title, w, h) {
+	    // Fixes dual-screen position                         Most browsers      Firefox
+	    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+	    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
+
+	    width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+	    height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+	    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+	    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+	    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+	    // Puts focus on the newWindow
+	    if (window.focus) {
+	        newWindow.focus();
+	    }
 	}
 
 </script>
