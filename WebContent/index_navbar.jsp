@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -50,18 +50,18 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">È¸¿ø°¡ÀÔ/·Î±×ÀÎ</a></li>
+        <li><a href="#">íšŒì›ê°€ìž…/ë¡œê·¸ì¸</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">°í°´¼¾ÅÍ <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ê³ ê°ì„¼í„° <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">BEST FAQ</a></li>
-            <li><a href="#">»óÇ°¹®ÀÇ</a></li>
-            <li><a href="#">ÁÖ¹®/°áÁ¦</a></li>
-            <li><a href="#">¹è¼Û</a></li>
-            <li><a href="#">ÁÖ¹® Ãë¼Ò ¹× ±³È¯</a></li>
-            <li><a href="#">¹ÝÇ°</a></li>
+            <li><a href="#">ìƒí’ˆë¬¸ì˜</a></li>
+            <li><a href="#">ì£¼ë¬¸/ê²°ì œ</a></li>
+            <li><a href="#">ë°°ì†¡</a></li>
+            <li><a href="#">ì£¼ë¬¸ ì·¨ì†Œ ë° êµí™˜</a></li>
+            <li><a href="#">ë°˜í’ˆ</a></li>
             <li class="divider"></li>
-            <li><a href="service.jsp">¹®ÀÇÇÏ·¯ °¡±â</a></li>
+            <li><a href="service.jsp">ë¬¸ì˜í•˜ëŸ¬ ê°€ê¸°</a></li>
           </ul>
         </li>
       </ul>

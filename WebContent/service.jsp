@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,18 +48,18 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">È¸¿ø°¡ÀÔ/·Î±×ÀÎ</a></li>
+        <li><a href="#">íšŒì›ê°€ìž…/ë¡œê·¸ì¸</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">°í°´¼¾ÅÍ <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">ê³ ê°ì„¼í„° <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">BEST FAQ</a></li>
-            <li><a href="#">»óÇ°¹®ÀÇ</a></li>
-            <li><a href="#">ÁÖ¹®/°áÁ¦</a></li>
-            <li><a href="#">¹è¼Û</a></li>
-            <li><a href="#">ÁÖ¹® Ãë¼Ò ¹× ±³È¯</a></li>
-            <li><a href="#">¹ÝÇ°</a></li>
+            <li><a href="#">ìƒí’ˆë¬¸ì˜</a></li>
+            <li><a href="#">ì£¼ë¬¸/ê²°ì œ</a></li>
+            <li><a href="#">ë°°ì†¡</a></li>
+            <li><a href="#">ì£¼ë¬¸ ì·¨ì†Œ ë° êµí™˜</a></li>
+            <li><a href="#">ë°˜í’ˆ</a></li>
             <li class="divider"></li>
-            <li><a href="#">¹®ÀÇÇÏ·¯ °¡±â</a></li>
+            <li><a href="#">ë¬¸ì˜í•˜ëŸ¬ ê°€ê¸°</a></li>
           </ul>
         </li>
       </ul>
@@ -82,26 +82,26 @@
 </div>
 <!-- navbarmiddle end -->
 <div class="jumbotron">
-  <h3> °í°´¼¾ÅÍ ÆäÀÌÁö ÀÔ´Ï´Ù.</h3>
-  <h1>¹«¾ùÀ» µµ¿Íµå¸±±î¿ä?</h1>
+  <h3> ê³ ê°ì„¼í„° íŽ˜ì´ì§€ ìž…ë‹ˆë‹¤.</h3>
+  <h1>ë¬´ì—‡ì„ ë„ì™€ë“œë¦´ê¹Œìš”?</h1>
   <p>...</p>
   <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-<!-- ÀÌ¸§, ÀÌ¸á, »ó´ã ³»¿ë form -->
+<!-- ì´ë¦„, ì´ë©œ, ìƒë‹´ ë‚´ìš© form -->
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="">
 		<div class="form-group">
-			<label for="name" class="control-label"><strong>ÀÌ¸§</strong></label>
+			<label for="name" class="control-label"><strong>ì´ë¦„</strong></label>
 			<input type="text" id="name" class="form-control" />
 		</div>
 		<div class="form-group">
-			<label for="email"><strong>ÀÌ¸ÞÀÏ</strong></label>
+			<label for="email"><strong>ì´ë©”ì¼</strong></label>
 			<input type="email" id="email" class="form-control"/>
-			<p class="help-block">´äº¯ ¹ÞÀ» ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇÏ¼¼¿ä.</p>
+			<p class="help-block">ë‹µë³€ ë°›ì„ ì´ë©”ì¼ì„ ìž…ë ¥í•˜ì„¸ìš”.</p>
 		</div>
-		<strong>¹®ÀÇ³»¿ë</strong><textarea class="form-control" rows="7"></textarea>
-		<button type="submit" class="btn btn-default">Á¦Ãâ</button>
+		<strong>ë¬¸ì˜ë‚´ìš©</strong><textarea class="form-control" rows="7"></textarea>
+		<button type="submit" class="btn btn-default">ì œì¶œ</button>
 	</form>
 </div>
 
