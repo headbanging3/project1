@@ -45,9 +45,15 @@
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
 <script>
+	//아이디 찾기 버튼 클릭시
 	$("#findIdBtn").on("click",function(){
 		var memName=$("#memName").val();
 		var memEmail=$("#memEmail").val();
+		if(memName=="" || memEmail==""){
+			alert("정보를 입력해주세요.");
+			return false;
+		}
+		//data를 전달해서 유효값 불러오기
 		$.ajax({
 			url:"findIdAjax.jsp",
 			method:"POST",
@@ -55,14 +61,26 @@
 					memEmail:memEmail},
 			success:function(data){
 				var obj=JSON.parse(data);
-				alert(obj.id);
+				if(obj.id=="null"){
+					alert("찾는 아이디가 없습니다.");
+				}else{
+					alert(obj.id);	
+				}
 			}
 		});
+		$("#memName").val("");
+		$("#memEmail").val("");
 	});
 	
+	//비밀번호 찾기 버튼 클릭시
 	$("#findPwdBtn").on("click",function(){
 		var memId=$("#memId").val();
 		var memPhone=$("#memPhone").val();
+		if(memId=="" || memPhone==""){
+			alert("정보를 입력해주세요.");
+			return false;
+		}
+		//data를 전달해서 유효값 불러오기
 		$.ajax({
 			url:"findPwdAjax.jsp",
 			method:"POST",
@@ -70,11 +88,16 @@
 					memPhone:memPhone},
 			success:function(data){
 				var obj=JSON.parse(data);
-				alert(data.pwd);
+				if(obj.pwd==""){
+					alert("아이디 또는 번호를 확인해주세요.");
+				}else{
+					alert(obj.pwd);	
+				}
 			}
 		});
+		$("#memId").val("");
+		$("#memPhone").val("");
 	});
-
 </script>
 </body>
 </html>

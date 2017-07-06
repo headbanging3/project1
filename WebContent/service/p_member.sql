@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 SELECT * FROM p_member;
 
 CREATE TABLE p_member
@@ -42,13 +41,6 @@ ALTER TABLE p_member ADD
 
 
 
-
-
-
-
-
-
-=======
 SELECT * FROM p_member;
 
 CREATE TABLE p_member
@@ -90,12 +82,3 @@ ALTER TABLE p_member ADD
 		REFERENCES p_service(mem_num)
 );
 
-
-
-
-
-
-
-
-
->>>>>>> branch 'master' of https://github.com/headbanging3/project1.git

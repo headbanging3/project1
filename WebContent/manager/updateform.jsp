@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>updateform.jsp</title>
 </head>
 <body>
 <h3>회원 정보 수정</h3>
@@ -31,6 +31,8 @@
 			value="<%=dto.getEmail()%>"/> <br/>												
 	주소 <input type="text" name="addr"
 			value="<%=dto.getAddr()%>"/> <br/>
+	<input type="hidden" name="regdate" value="<%=dto.getRegdate() %>" />
+	가입날짜 <input type="text" value="<%=dto.getRegdate() %>" disabled />	<br/>		
 	<button type="submit">확인</button>	
 </form>
 </body>

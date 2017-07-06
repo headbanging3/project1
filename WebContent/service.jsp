@@ -28,7 +28,9 @@
 <div class="col-sm-8 col-sm-offset-2">
 	<form action="service/ser_insert.jsp" method="post">
 		<div class="form-group">
-			<input type="hidden" id="mem_num" name="mem_num" value="<%=dto.getMem_num() %>"/>
+			<%if(id!=null){ %>
+				<input type="hidden" id="mem_num" name="mem_num" value="<%=dto.getMem_num() %>"/>
+			<%} %>
 			<label for="name" class="control-label"><strong>이름</strong></label>
 			<input type="text" id="name" name="name" class="form-control"
 			<%if(id!=null) {%>
