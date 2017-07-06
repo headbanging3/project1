@@ -8,12 +8,12 @@
 <style>
 	.container{
 		margin: 0 auto;
-		border: 5px solid #cecece;
 		text-align:center;
-		padding-top:100px;
+		margin-top:60px;
+	
 	}
 	h3{
-		padding-bottom:30px;
+		padding-bottom:10px;
 	}
 	.container div{
 		padding:20px;
@@ -21,26 +21,43 @@
 	.container button{
 		margin : 20px;
 	}
+	.form-inline{
+		margin: 100px 0;
+		padding:30px;
+	}
 </style>
 </head>
 <body>
 <jsp:include page="../index_navbar.jsp"></jsp:include>
 <div class="container">
-	<div>
-		<h3>아이디 찾기</h3>
-		<label for="memName">이름 : </label>
-		<input type="text" name="memName" id="memName" /><br />
-		<label for="memEmail">이메일 : </label>
-		<input type="text" name="memEmail" id="memEmail" /><br />
-		<button type="submit" id="findIdBtn" class="btn btn-primary">찾기</button>
-	</div>
-	<div>
-		<h3>비밀번호 찾기</h3>
-		<label for="memId">아이디 : </label>
-		<input type="text" name="memId" id="memId"/><br />
-		<label for="memPhone">전화번호 : </label>
-		<input type="text" name="memPhone" id="memPhone"/><br />
-		<button id="findPwdBtn" class="btn btn-primary">찾기</button>
+	<div id="signForm" class="panel panel-default">
+		<div class="panel-heading">
+          	<h1 class="panel-title">아이디 및 비밀번호 찾기</h1>
+        </div>
+		<form action="" class="form-inline">
+			<h3>아이디 찾기</h3>
+			<div class="form-group">
+				<label for="memName">이름 : </label>
+				<input type="text" class="form-control" name="memName" id="memName" />
+			</div>
+			<div class="form-group">
+				<label for="memEmail">이메일 : </label>
+				<input type="text" class="form-control" name="memEmail" id="memEmail" />
+			</div>
+			<button type="submit" id="findIdBtn" class="btn btn-primary">찾기</button>
+		</form>
+		<form action="" class="form-inline">
+			<h3>비밀번호 찾기</h3>
+			<div class="form-group">
+				<label for="memId">아이디 : </label>
+				<input type="text" class="form-control" name="memId" id="memId"/>
+			</div>
+			<div class="form-group">
+				<label for="memPhone">전화번호 : </label>
+				<input type="text" class="form-control" name="memPhone" id="memPhone"/>
+			</div>
+			<button type="submit" id="findPwdBtn" class="btn btn-primary">찾기</button>
+		</form>
 	</div>
 </div>
 <script src="../resource/js/jquery-3.2.0.js"></script>
