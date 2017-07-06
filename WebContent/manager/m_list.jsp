@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="p_memberdao.p_memberDao"%>
 <%@page import="p_memberdto.p_memberDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
