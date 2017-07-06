@@ -1,10 +1,13 @@
+<%@page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.util.List"%>
 <%@page import="p_memberdao.p_memberDao"%>
 <%@page import="p_memberdto.p_memberDto"%>
+<%@page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
+	request.setCharacterEncoding("EUC-KR");
 	p_memberDao dao = p_memberDao.getInstance();
 
 	List<p_memberDto> list = dao.getList();
@@ -13,12 +16,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>m_list.jsp</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
-<jsp:include page="menu.jsp"/>
 <body>
 <h3></h3>
-	<table border="1">
+<jsp:include page="menu.jsp"/>
+  <!-- 본문 -->
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+     <table border="1">
 		<thead>
 		<tr>
 			<th>번호</th>
@@ -46,10 +54,14 @@
 				<td><%=tmp.getAddr() %></td>
 				<td><%=tmp.getRegdate() %></td>
 				<td><a href="updateform.jsp?num=<%=tmp.getMem_num()%>">수정</a></td>
-				<td><a href="">삭제</a></td>
+				<td><a href="delete.jsp?num=<%=tmp.getMem_num()%>">삭제</a></td>
 			</tr>
 		<%} %>
 		</tbody>
 		</table>
+    </div>
+  </div>
+  <!-- /본문 -->
+	
 </body>
 </html>

@@ -3,6 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+	request.setCharacterEncoding("UTF-8");
 	//로그인된 id 를 읽어온다
 	String id=(String)session.getAttribute("id");
 	// id 에 해당하는 회원정보 얻어오기
@@ -28,6 +29,10 @@
 		<tr>
 			<th>아이디</th>
 			<td><%=dto.getId() %></td>
+		</tr>
+		<tr>
+			<th>비밀번호</th>
+			<td><%=dto.getPwd() %></td>
 		</tr>
 		<tr>
 			<th>이메일</th>
