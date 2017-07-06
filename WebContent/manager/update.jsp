@@ -4,6 +4,16 @@
     pageEncoding="UTF-8"%>
     
 <%
+	String cPath=request.getContextPath();
+
+	//로그인후 리다일렉트 이동할 url 주소
+	String url=request.getParameter("url");
+	
+	if(url==null){
+		url=request.getContextPath();
+	}
+	
+
 	// 수정할 회원의 정보를 읽어온다
    request.setCharacterEncoding("utf-8");
    int num=Integer.parseInt(request.getParameter("num"));
@@ -31,7 +41,9 @@
 <body>
 <% if(isSuccess) { %>
 	<script>
-		alert("저장성공");
+		alert(<%=id%>);
+		location.href = "<%=cPath%>/manager/m_list.jsp";
+		<% System.out.println(id); %>
 	</script>
 <%} else {%>
 	<script>
