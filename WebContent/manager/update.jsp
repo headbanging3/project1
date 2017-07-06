@@ -6,13 +6,7 @@
 <%
 	String cPath=request.getContextPath();
 
-	//로그인후 리다일렉트 이동할 url 주소
-	String url=request.getParameter("url");
-	
-	if(url==null){
-		url=request.getContextPath();
-	}
-	
+
 
 	// 수정할 회원의 정보를 읽어온다
    request.setCharacterEncoding("utf-8");
@@ -41,13 +35,12 @@
 <body>
 <% if(isSuccess) { %>
 	<script>
-		alert(<%=id%>);
+		alert('<%=id%>' + " 회원정보 수정");
 		location.href = "<%=cPath%>/manager/m_list.jsp";
-		<% System.out.println(id); %>
 	</script>
 <%} else {%>
 	<script>
-		alert("실패")
+		alert("수정 실패")
 	</script>
 <%} %>
 

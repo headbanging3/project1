@@ -209,6 +209,34 @@ public class p_memberDao {
 			//회원 한명의 정보가 담겨 있는 MemberDto 객체를 리턴해준다.
 			return dto;
 		}	
+		
+		//회원정보 삭제
+		public boolean delete(int num){
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			int flag=0;
+			try{
+				conn=new DbcpBean().getConn();
+				String sql="DELETE FROM p_member WHERE mem_num=?";
+				pstmt=conn.prepareStatement(sql);
+				// ? 에 삭제할 회원의 번호를 바인딩 한다.
+				pstmt.setInt(1, num);
+				// 삭제하기
+				flag=pstmt.executeUpdate();
+			}catch(Exception e){
+				e.printStackTrace();
+			}finally{
+				try{
+					if(pstmt!=null)pstmt.close();
+					if(conn!=null)conn.close();
+				}catch(Exception e){}
+			}
+			if(flag>0){
+				return true;
+			}else{
+				return false;
+			}
+		}
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
 	
