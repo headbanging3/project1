@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
+<%
+	String cPath = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -17,8 +19,9 @@
   <!-- 본문 -->
   <div id="page-content-wrapper">
     <div class="container-fluid">
-      <h1>간단한 사이드바</h1>
-      <p>메뉴가 많아서 한 페이지를 넘으면 세로 스크롤바 생김</p>
+      <ul>
+      	<li><a href="<%=cPath%>">유저 페이지로 돌아가기</a></li>
+      </ul>
     </div>
   </div>
   <!-- /본문 -->

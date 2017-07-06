@@ -16,6 +16,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <title>m_list.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -25,8 +26,8 @@
 <jsp:include page="menu.jsp"/>
   <!-- 본문 -->
   <div id="page-content-wrapper">
-    <div class="container-fluid">
-     <table border="1">
+    <div class="container-fluid ">
+     <table border="1" class="class="table table-striped table-bordered table-hover">
 		<thead>
 		<tr>
 			<th>번호</th>
@@ -44,7 +45,7 @@
 		
 		<tbody>
 		<% for(p_memberDto tmp : list) { %>
-			<tr>
+			<tr class="success">
 				<td><%=tmp.getMem_num() %></td>
 				<td><%=tmp.getId() %></td>
 				<td><%=tmp.getPwd() %></td>
@@ -53,7 +54,7 @@
 				<td><%=tmp.getEmail() %></td>
 				<td><%=tmp.getAddr() %></td>
 				<td><%=tmp.getRegdate() %></td>
-				<td><a href="updateform.jsp?num=<%=tmp.getMem_num()%>">수정</a></td>
+				<td><a href="updateform2.jsp?num=<%=tmp.getMem_num()%>">수정</a></td>
 				<td><a href="delete.jsp?num=<%=tmp.getMem_num()%>">삭제</a></td>
 			</tr>
 		<%} %>
