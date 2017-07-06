@@ -81,7 +81,7 @@
 <!-- navbartop end -->
 
 <!-- navbarmiddle -->
-<div class="col-sm-2 btn-group btn-group-justified" role="group" aria-label="...">
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default" onClick=menuClick('userMain');>Left</button>
   </div>
