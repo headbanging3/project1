@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>m_list.jsp</title>
 </head>
 <jsp:include page="menu.jsp"/>
 <body>

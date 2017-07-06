@@ -3,13 +3,13 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link rel="stylesheet" href="C:\Users\sh\git\project1\WebContent\resource/css/bootstrap.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>index.jsp</title>
-<script src="C:\Users\sh\git\project1\WebContent\resource/js/jquery-3.2.0.js"></script>
-<script src="C:\Users\sh\git\project1\WebContent\resource/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <style>
 	/* 사이드바 래퍼 스타일 */
