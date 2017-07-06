@@ -264,6 +264,31 @@ public class p_memberDao {
 		return id;
 	}//findId();
 	
+	public boolean delete(String id){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int flag = 0;
+		try{
+			conn = new DbcpBean().getConn();
+			String sql = "delete from p_member where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.executeQuery();
+		}catch(SQLException se){
+			se.printStackTrace();
+		}finally{
+			try{
+				if(pstmt != null)pstmt.close();
+				if(conn != null)conn.close();
+			}catch(Exception e){}
+		}
+		if(flag>0){
+			return true;
+		}else{
+			return false;
+			}
+	}//delete
+	
 	public p_memberDto findPwd(String id, String phone){
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -297,37 +322,7 @@ public class p_memberDao {
 
 	}
 
-	// 회원 정보 수정
-	public boolean update(p_memberDto dto) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		int flag = 0;
-		try {
-			conn = new DbcpBean().getConn();
-			String sql = "UPDATE p_member SET id=?, pwd=?, name=?, phone=?, email=?, addr=? WHERE mem_num = ?";
-			pstmt = conn.prepareStatement(sql);	
-			
-			//? 에 수정할 회원의 정보 바인딩 하기
-			pstmt.setString(1, dto.getId());
-			pstmt.setString(2, dto.getPwd());
-			pstmt.setString(3, dto.getName());
-			pstmt.setString(4, dto.getPhone());
-			pstmt.setString(5, dto.getEmail());
-			pstmt.setString(6, dto.getAddr());
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if(pstmt!=null) pstmt.close();
-				if(conn!=null) conn.close();
-			} catch(Exception e){}
-		}
-		if(flag>0)
-			return true;
-		else 
-			return false;
-		
-	}	// update();
+	
 	
 	//인자로 전달된 번호에 해당하는 회원정보를 리턴해주는 메소드
 	public p_memberDto getData(int num){
@@ -369,6 +364,38 @@ public class p_memberDao {
 		//회원 한명의 정보가 담겨 있는 MemberDto 객체를 리턴해준다.
 		return dto;
 	}	
+	
+	
+	//회원정보를 수정하는 메소드 
+	public boolean update(p_memberDto dto){
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		int flag=0;
+		try{
+			conn = new DbcpBean().getConn();
+			String sql ="update p_member set pwd=?,name=?,phone=?,email=?,addr=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPwd());
+			pstmt.setString(2, dto.getName());
+			pstmt.setString(3, dto.getPhone());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.setString(5, dto.getAddr());
+			pstmt.executeQuery();
+		}catch(SQLException se){
+			se.printStackTrace();
+		}finally{
+			try{
+				if(pstmt !=null)pstmt.close();
+				if(conn !=null)conn.close();
+			}catch(Exception e){}
+			if(flag >0){
+				return true;
+			}else{
+				return false;
+			}
+		}
+	}
+	
 
 }	// Class
 

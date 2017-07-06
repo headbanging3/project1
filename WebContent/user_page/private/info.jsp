@@ -52,16 +52,5 @@
 	</tbody>
 </table>
 <a href="updateform.jsp">가입 정보 수정</a>
-<a href="javascript:p_memberConfirm()">회원 탈퇴</a><br />
-
-<a href="../../index.jsp">메인 페이지로 가기</a>
-<script>
-	function p_memberConfirm(){
-		var isDelete=confirm("탈퇴 하시겠습니까?");
-		if(isDelete){
-			location.href="delete.jsp";
-		}
-	}
-</script>
 </body>
 </html>
