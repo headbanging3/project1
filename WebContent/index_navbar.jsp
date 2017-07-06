@@ -113,7 +113,7 @@
  		}	
  		if(menu=='shop'){	
  			//alert(menu);
- 			location.href='<%=cPath %>/user_page/detail.jsp';
+ 			location.href='<%=cPath %>/user_page/board1.jsp';
  		}	
  		
  	}
