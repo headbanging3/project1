@@ -506,13 +506,13 @@ public class p_memberDao {
 			int flag=0;
 			try{
 				conn = new DbcpBean().getConn();
-				String sql ="update p_member set pwd=?,name=?,phone=?,email=?,addr=?";
+				String sql ="update p_member set pwd=?,phone=?,email=?,addr=? where id=?";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, dto.getPwd());
-				pstmt.setString(2, dto.getName());
-				pstmt.setString(3, dto.getPhone());
-				pstmt.setString(4, dto.getEmail());
-				pstmt.setString(5, dto.getAddr());
+				pstmt.setString(2, dto.getPhone());
+				pstmt.setString(3, dto.getEmail());
+				pstmt.setString(4, dto.getAddr());
+				pstmt.setString(5, dto.getId());
 				pstmt.executeQuery();
 			}catch(SQLException se){
 				se.printStackTrace();

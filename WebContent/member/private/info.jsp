@@ -31,17 +31,15 @@
 			<td><%=dto.getId() %></td>
 		</tr>
 		<tr>
-			<th>비밀번호</th>
-			<td><%=dto.getPwd() %></td>
+			<th>이름</th>
+			<td><%=dto.getName() %></td>
 		</tr>
+		
 		<tr>
 			<th>이메일</th>
 			<td><%=dto.getEmail() %></td>
 		</tr>
-		<tr>
-			<th>이름</th>
-			<td><%=dto.getName() %></td>
-		</tr>
+		
 		<tr>
 			<th>전화번호</th>
 			<td><%=dto.getPhone() %></td>
