@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import p_memberdto.p_memberDto;
-import test.util.DBConnect;
 import util.DbcpBean;
 
 public class p_memberDao {
