@@ -17,7 +17,7 @@
    //MemberDto객체에 담는다
    p_memberDto dto=new p_memberDto(num,id,pwd,name,phone,email,addr,regdate);
    p_memberDao dao= p_memberDao.getInstance();
-   boolean isSuccess = dao.update(dto);	
+   boolean isSuccess = dao.update1(dto);	
    
    
 	
