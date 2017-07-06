@@ -613,50 +613,33 @@ public class p_memberDao {
 		public boolean serinsert(int mem_num, String s_content) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
-			ResultSet rs = null;
 			int flag = 0;
 			try {
 				conn = new DbcpBean().getConn();
-				conn.setAutoCommit(false);
-				String strQuery = "INSERT INTO p_service(mem_num,s_content) " + "VALUES(?,EMPTY_CLOB())";
-				pstmt = conn.prepareStatement(strQuery);
+				String sql = "INSERT INTO p_service(mem_num,s_content) "
+						+ "VALUES(?,?)";
+				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, mem_num);
+				pstmt.setString(2, s_content);
 				flag = pstmt.executeUpdate();
-				pstmt.close();
-
-				if(flag == 1) {
-					strQuery = "SELECT s_content FROM p_service WHERE mem_num = ? FOR UPDATE";
-					pstmt = conn.prepareStatement(strQuery);
-					pstmt.setInt(1, mem_num);
-					rs = pstmt.executeQuery();
-					
-					String strCLOB=s_content;
-					if(rs.next()) {
-						CLOB clob = ((OracleResultSet)rs).getCLOB("s_content");
-						Writer writer = clob.getCharacterOutputStream();
-						Reader reader = new CharArrayReader(strCLOB.toCharArray());
-						char[] buffer = new char[1024];
-						int read = 0;
-						
-						while((read = reader.read(buffer, 0, 1024)) != -1) {
-							writer.write(buffer, 0, read);
-						}
-						reader.close();
-						writer.close();
-					}
-					conn.commit();
-					conn.setAutoCommit(true);
-					rs.close();
-				}
-				conn.close();			
 			} catch (Exception e) {
 				e.printStackTrace();
-			} if(flag==1){
+			} finally {
+				try {
+					if (pstmt != null)
+						pstmt.close();
+					if (conn != null)
+						conn.close();
+				} catch (Exception e) {
+				}
+			}
+			if (flag > 0) {
 				return true;
 			} else {
 				return false;
 			}
-		}// serinert();	
+		}// inert();	
+			
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
 	
