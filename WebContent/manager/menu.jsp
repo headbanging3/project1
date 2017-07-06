@@ -6,6 +6,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <style>
 	/* 사이드바 래퍼 스타일 */
   
@@ -77,6 +79,7 @@
       <li><a href="#">메뉴 9</a></li>
     </ul>
   </div>
+
   <!-- /사이드바 -->
 </body>
 </html>

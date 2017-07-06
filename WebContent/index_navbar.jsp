@@ -55,8 +55,8 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
       	<%if(id != null) {%>
-      	  <li><a href="../member/private/info.jsp"><%=id %> 님</a></li>
-      	  <li><a href="popup/logout.jsp"> 로그아웃 </a></li>
+      	  <li><a href="<%=cPath %>/member/private/info.jsp"><%=id %> 님</a></li>
+      	  <li><a href="<%=cPath %>/popup/logout.jsp"> 로그아웃 </a></li>
       	<%} else { %>
 	      <li><a href="javascript:showPopup()">회원가입/로그인</a></li>
 	    <%} %>
@@ -98,7 +98,7 @@
 
  	//팝업 띄우는 함수 
 	function showPopup(){
-		window.open("<%=cPath %>/popup/popup_page.jsp","팝업창","width=400,height=300,top=100,left=100");
+		window.open("<%=cPath %>/popup/popup_page.jsp","팝업창","width=400,height=300,top=200,left=700");
 	}
  	
  	// 팝업을 닫는 함수

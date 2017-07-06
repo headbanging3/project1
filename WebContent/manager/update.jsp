@@ -4,6 +4,10 @@
     pageEncoding="UTF-8"%>
     
 <%
+	String cPath=request.getContextPath();
+
+
+
 	// 수정할 회원의 정보를 읽어온다
    request.setCharacterEncoding("utf-8");
    int num=Integer.parseInt(request.getParameter("num"));
@@ -17,7 +21,7 @@
    //MemberDto객체에 담는다
    p_memberDto dto=new p_memberDto(num,id,pwd,name,phone,email,addr,regdate);
    p_memberDao dao= p_memberDao.getInstance();
-   boolean isSuccess = dao.update(dto);	
+   boolean isSuccess = dao.update1(dto);	
    
    
 	
@@ -31,11 +35,12 @@
 <body>
 <% if(isSuccess) { %>
 	<script>
-		alert("저장성공");
+		alert('<%=id%>' + " 회원정보 수정");
+		location.href = "<%=cPath%>/manager/m_list.jsp";
 	</script>
 <%} else {%>
 	<script>
-		alert("실패")
+		alert("수정 실패")
 	</script>
 <%} %>
 
