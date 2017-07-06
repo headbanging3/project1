@@ -542,6 +542,7 @@ public class p_memberDao {
 				pstmt.setString(4, dto.getAddr());
 				pstmt.setString(5, dto.getId());
 				pstmt.executeQuery();
+				
 			}catch(SQLException se){
 				se.printStackTrace();
 			}finally{
