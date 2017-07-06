@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-	request.setCharacterEncoding("EUC-KR");
+
 	p_memberDao dao = p_memberDao.getInstance();
 
 	List<p_memberDto> list = dao.getList();

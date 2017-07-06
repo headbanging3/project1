@@ -19,16 +19,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
 
-
-=======
 <style>
 	.hide {
 		display:none;
 	}
 </style>
->>>>>>> branch 'master' of https://github.com/headbanging3/project1.git
+
 </head>
 <body>
 <jsp:include page="index_navbar.jsp"></jsp:include>
