@@ -5,7 +5,7 @@
 <%
 	//쿠키에 저장된 아이디를 담을 변수
 	String savedId="";
-	String savedId2="";
+	
 	//request 객체에 담겨서 전달된 쿠키 목록을 읽어온다.
 	Cookie[] cookies=request.getCookies();
 	
