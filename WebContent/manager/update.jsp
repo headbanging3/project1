@@ -41,13 +41,12 @@
 <body>
 <% if(isSuccess) { %>
 	<script>
-		alert(<%=id%>);
+		alert('<%=id%>' + " 회원정보 수정");
 		location.href = "<%=cPath%>/manager/m_list.jsp";
-		<% System.out.println(id); %>
 	</script>
 <%} else {%>
 	<script>
-		alert("실패")
+		alert("수정 실패")
 	</script>
 <%} %>
 

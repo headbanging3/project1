@@ -1,10 +1,13 @@
+<%@page contentType="text/html; charset=UTF-8" %>
 <%@page import="java.util.List"%>
 <%@page import="p_memberdao.p_memberDao"%>
 <%@page import="p_memberdto.p_memberDto"%>
+<%@page import="java.sql.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
 <%
+	request.setCharacterEncoding("EUC-KR");
 	p_memberDao dao = p_memberDao.getInstance();
 
 	List<p_memberDto> list = dao.getList();
