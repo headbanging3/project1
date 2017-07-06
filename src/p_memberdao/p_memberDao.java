@@ -339,7 +339,7 @@ public class p_memberDao {
 
 
 	// 회원 정보 수정
-	public boolean update(p_memberDto dto) {
+	public boolean update1(p_memberDto dto) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int flag = 0;
@@ -379,7 +379,7 @@ public class p_memberDao {
 	} // update();
 
 	// 인자로 전달된 번호에 해당하는 회원정보를 리턴해주는 메소드
-	public p_memberDto getData(int num) {
+	public p_memberDto getDataS(int num) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -455,8 +455,8 @@ public class p_memberDao {
 			}
 		}
 		return id;
-<<<<<<< HEAD
-	}//findId();
+
+	}// overlab();
 	
 	public boolean delete(String id){
 		Connection conn = null;
@@ -483,42 +483,9 @@ public class p_memberDao {
 			}
 	}//delete
 	
-	public p_memberDto findPwd(String id, String phone){
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
 
-	}//isOverlab();
 
-		
-		try {
-			conn = new DbcpBean().getConn();
-			String sql = "SELECT pwd FROM p_member "
-					+ "WHERE id=? AND phone=?";
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
-			pstmt.setString(2, phone);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null)
-					rs.close();
-				if (pstmt != null)
-					pstmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-			}
-		}return null;
-
-	}
-
+	
 	
 	
 	//인자로 전달된 번호에 해당하는 회원정보를 리턴해주는 메소드
