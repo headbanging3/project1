@@ -19,20 +19,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<<<<<<< HEAD
 
-
-=======
 <style>
 	.hide {
 		display:none;
 	}
 </style>
->>>>>>> branch 'master' of https://github.com/headbanging3/project1.git
+
 </head>
 <body>
 <jsp:include page="index_navbar.jsp"></jsp:include>
-<<<<<<< HEAD
+
 <div class="container">
 	<h3>메인 페이지 입니다.</h3>
 	<ul class="pagination">
@@ -42,12 +39,8 @@
 	
 </div>
 
-=======
-<h3>메인 페이지 입니다.</h3>
-<li class="<%=manager %> "><a href="manager/">관리자페이지</a></li>
 
 
-<li><a href="user_page/index.jsp">유저페이지</a></li>
->>>>>>> branch 'master' of https://github.com/headbanging3/project1.git
+
 </body>
 </html>
