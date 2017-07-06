@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%
 	String cPath = request.getContextPath();
 %>
@@ -16,15 +16,15 @@
 <body>
 <h3></h3>
 <jsp:include page="menu.jsp"/>
-  <!-- º»¹® -->
+  <!-- ë³¸ë¬¸ -->
   <div id="page-content-wrapper">
     <div class="container-fluid">
       <ul>
-      	<li><a href="<%=cPath%>">À¯Àú ÆäÀÌÁö·Î µ¹¾Æ°¡±â</a></li>
+      	<li><a href="<%=cPath%>">ìœ ì € íŽ˜ì´ì§€ë¡œ ëŒì•„ê°€ê¸°</a></li>
       </ul>
     </div>
   </div>
-  <!-- /º»¹® -->
+  <!-- /ë³¸ë¬¸ -->
 
 </body>
 </html>
