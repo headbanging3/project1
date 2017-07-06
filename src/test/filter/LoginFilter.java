@@ -43,7 +43,7 @@ public class LoginFilter implements Filter{
 		//session 에 로그인 정보가 있는지 여부를 확인해서
 		if(session.getAttribute("id")==null){
 			//로그인 페이지의 경로 구성
-			String path=cPath+"/users/signin_form.jsp?url="+url;
+			String path=cPath+"/popup/popup_page.jsp?url="+url;
 			//로그인 페이지로 이동 시킨다.
 			response.sendRedirect(path);
 		}else{
