@@ -8,77 +8,75 @@
 <style>
 	.container{
 		margin: 0 auto;
-		border: 1px solid red;
+		margin-top:60px;
 		text-align:center;
-		padding-top:100px;
 	}
+
 	#signForm{
 		display:inline-block;
 		padding :50px;
 	}
-	#signForm div{
+	.form-group{
 		padding:20px;		
-		width:500px;
-		height:80px;
+		width:700px;
 	}
 	button{
-		margin-left:30px;
 		width:200px;
 	}
-	input{
-		width:200px;
-		height:30px;
-	}
-	
 	#idValid{
 		width:80px;
-		margin-left:10px;
 	}
 	#addr{
-		width:400px;
+		width:600px;
+	}
+	.form-inline{
+		margin-top:30px;
 	}
 </style>
 </head>
 <body>
 <jsp:include page="../index_navbar.jsp"></jsp:include>
 <div class="container">
-<h3>회원가입</h3>
-	<div id="signForm">
-			<form action="signup.jsp" method=post id="signup">
-				<div>
-					<label for="id">* 아이디 : </label>
-					<input type="text" name="id" id="id"/>
-					
-					<button type="button" id="idValid" class="btn btn-primary">중복확인</button>
-					<p id="id_help" class="help-block">영문자 5~15자</p>		
+
+	<div id="signForm" class="panel panel-default">
+		 <div class="panel-heading">
+          	<h1 class="panel-title">회원가입</h1>
+        </div>
+        	<form action="signup.jsp" class="form-inline" method=post id="signup">
+				 <div class="form-group">	
+				 	<label for="id">* 아이디 : </label>
+					<input type="text" class="form-control" name="id" id="id" placeholder="영문자5~15자"/>
+					<button type="button" id="idValid" class="btn btn-default">중복검색</button>
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="pwd">* 비밀번호 : </label>
-					<input type="password" name="pwd" id="pwd"/><br />
+					<input type="password" class="form-control" name="pwd" id="pwd"/><br />
 					<p id="pwd_help" class="help-block">최소 1개의 숫자 혹은 특수문자를 포함한 6~20자 사이</p>								
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="pwd2">* 비밀번호 확인 : </label>
-					<input type="password" name="pwd2" id="pwd2"/><br />
+					<input type="password" class="form-control" name="pwd2" id="pwd2"/><br />
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="name">* 이름 : </label>
-					<input type="text" name="name" id="name" /><br />
+					<input type="text" class="form-control" name="name" id="name" /><br />
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="phone">* 번호 : </label>
-					<input type="text" name="phone" id="phone" /><br />
+					<input type="text" class="form-control" name="phone" id="phone" /><br />
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="email">이메일 : </label>
-					<input type="text" name="email" id="email" /><br />
+					<input type="text" class="form-control" name="email" id="email" />
 				</div>
-				<div>
+				<div class="form-group">
 					<label for="addr">주소 : </label>
-					<input type="text" name="addr" id="addr" /><br />
+					<input type="text" class="form-control" name="addr" id="addr" /><br />
 				</div>
-				<button type="submit" class="btn btn-primary">가입</button>
-				<button type="button" id="cancel" class="btn btn-primary">취소</button>	
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">가입</button>
+					<button type="button" id="cancel" class="btn btn-primary">취소</button>
+				</div>	
 			</form>
 		</div>
 	

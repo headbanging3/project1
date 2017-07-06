@@ -15,9 +15,11 @@
 <title>/users/private/update.jsp</title>
 </head>
 <body>
+
 <script>
 	alert("<%=dto.getId() %> 회원님 정보를 수정했습니다.")
 	location.href="info.jsp";
 </script>
+
 </body>
 </html>
