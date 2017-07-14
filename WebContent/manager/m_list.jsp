@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
     
 <%
-	request.setCharacterEncoding("EUC-KR");
+
 	p_memberDao dao = p_memberDao.getInstance();
 
 	List<p_memberDto> list = dao.getList();
@@ -20,6 +20,7 @@
 <title>m_list.jsp</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <h3></h3>
@@ -30,7 +31,7 @@
      <table border="1" class="class="table table-striped table-bordered table-hover">
 		<thead>
 		<tr>
-			<th>번호</th>
+			<th>#</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>이름</th>
@@ -63,6 +64,8 @@
     </div>
   </div>
   <!-- /본문 -->
-	
+<script>
+ 
+</script>	
 </body>
 </html>
