@@ -1,20 +1,13 @@
 package p_memberdao;
 
-import java.io.CharArrayReader;
-import java.io.Reader;
-import java.io.Writer;
-import java.sql.Clob;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.io.*;
+import java.sql.*;
 import oracle.jdbc.driver.*;
-import oracle.sql.CLOB;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import p_memberdto.p_memberDto;
+import serviceDto.ServiceDto;
 import util.DbcpBean;
 
 public class p_memberDao {
@@ -572,6 +565,44 @@ public class p_memberDao {
 	
 ////////////////////////////////////////////////  재두       ///////////////////////////////////////////////////////////////////////////////	
 	
+		//나의 문의 내역 데이터 가져오기
+		public List<ServiceDto> mysergetList(int mem_num){
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			List<ServiceDto> list=new ArrayList<>();
+			try {
+				conn=new DbcpBean().getConn();
+				String sql="SELECT title, s_content, TO_CHAR(regdate,'YYYY.MM.DD AM HH24:MI') regdate FROM p_service INNER JOIN p_member ON p_member.mem_num = p_service.mem_num WHERE p_member.mem_num= ? ORDER BY regdate";
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setInt(1, mem_num);
+				//sql 문 수행하고 결과셋 받아오기
+				rs=pstmt.executeQuery();
+				while(rs.next()){
+					String title=rs.getString("title");
+					String s_content=rs.getString("s_content");
+					String regdate=rs.getString("regdate");
+					ServiceDto dto=new ServiceDto();
+					dto.setTitle(title);
+					dto.setS_content(s_content);
+					dto.setRegdate(regdate);
+					list.add(dto);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(mem_num);
+			} finally {
+				try {
+					if(rs!=null)rs.close();
+					if(pstmt!=null)pstmt.close();
+					if(conn!=null)conn.close();
+				} catch (Exception e) {}
+			}
+			//글목록을 리턴해준다
+			return list;
+		}//getList()
+		
+		
 		//고객센터 페이지 문의하러 가기에서 
 		//폼에 회원 정보가져오는 service getdata (재두)
 		public p_memberDto sergetData(String id) {
@@ -610,17 +641,18 @@ public class p_memberDao {
 	
 		//고객센터 페이지 문의하러 가기에서 
 		//service insert(재두) 
-		public boolean serinsert(int mem_num, String s_content) {
+		public boolean serinsert(int mem_num, String s_content, String title) {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			int flag = 0;
 			try {
 				conn = new DbcpBean().getConn();
-				String sql = "INSERT INTO p_service(mem_num,s_content) "
-						+ "VALUES(?,?)";
+				String sql = "INSERT INTO p_service(mem_num,s_content,title,s_regdate) "
+						+ "VALUES(?,?,?,SYSDATE)";
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, mem_num);
 				pstmt.setString(2, s_content);
+				pstmt.setString(3, title);
 				flag = pstmt.executeUpdate();
 			} catch (Exception e) {
 				e.printStackTrace();
